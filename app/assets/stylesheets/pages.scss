@@ -1,25 +1,29 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+body {
+  margin: 0px 15%;
+}
 
 .top-hero-wrapper {
-  padding-top: 70px;
   h1, h2 {
     letter-spacing: -2px;
   }
-  
+}
+
+.container {
+  width: auto;
 }
 
 .top-container {
   background-image: url('Kyoto.jpg');
-  //width: 100vw; ない方が均一にセンターに寄る
-  height: 100vh;
+  height: 480px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+  width: auto;
 }
+
 
 .top-title {
   padding-top: 60px;
@@ -33,9 +37,9 @@
 }
 
 .btn-orange {
-  color: #fff;
+  color: #993300;
   background-color: #FFBEDA;
-  border: 1px solid #FFABCE;
+  border: 1px solid #993300;
 }
 
 .row {
