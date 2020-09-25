@@ -1,2 +1,31 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="signup-wrapper">
+  <div class="signup-container">
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <h1>Sign Up</h1>
+        <%= form_for @user do |f| %>
+          <div class="form-group">
+            <%= f.label :name, "氏名" %>
+            <%= f.text_field :name, class: 'input-form' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "メールアドレス" %>
+            <%= f.email_field :email, class: 'input-form' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, "パスワード" %>
+            <%= f.password_field :password, class: 'input-form' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, "パスワード(確認用)" %>
+            <%= f.password_field :password_confirmation, class: 'input-form' %>
+          </div>
+          <div>
+            <%= f.submit "登録", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+        <%= link_to "ログインはこちら", '#' %>  
+      </div>
+    </div>
+  </div>
+</div>

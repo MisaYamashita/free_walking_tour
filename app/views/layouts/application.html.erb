@@ -12,12 +12,12 @@
   <body>
     <header class="navbar navbar-top navbar-inverse">
       <div class="container">
-        <%= link_to "FREE WALKING TOUR JP",'#', id:"logo" %>
+        <%= link_to "FREE WALKING TOUR JP",'root_path', id:"logo" %>
         <nav>
           <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home", '#' %></li>
-            <li><%= link_to "About", '#' %></li>
-            <li><%= link_to "Contact", '#' %></li>
+            <li><%= link_to "Home", 'root_path' %></li>
+            <li><%= link_to "About", 'pages_about_path' %></li>
+            <li><%= link_to "Contact", 'pages_contact_path' %></li>
             <li><%= link_to "Log in", '#' %></li>
           </ul>
         </nav>
@@ -25,7 +25,17 @@
     </header>
     
     <div class="main">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
+      <% end %>
+      
       <%= yield %>
+      
+      <script>
+        $(function() {
+          $(".alert").fadeOut(4000);
+        });
+      </script>
     </div>
     
   </body>
