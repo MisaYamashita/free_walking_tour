@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user_profile = current_user.profile
+    @user_mypage = current_user
+    #@profile = current_user.profile
     #@join_tour = current_userの参加するツアー
     #@joined_tour = current_userが参加したツアー
     #@plan_tour = current_userが実施するツアー
