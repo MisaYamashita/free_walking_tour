@@ -1,0 +1,23 @@
+.inquiry-container {
+  background-image: url('NokogiriMt.jpg');
+  height: 550px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+ }
+ 
+ .inquiry-form dt {
+  width: 200px;
+  float:left;
+  clear:both;
+ }
+ 
+ .inquery-title-form {
+   width: 250px;
+ }
+ 
+ .inquery-message-form {
+   width: 250px;
+   height: 150px;
+ }

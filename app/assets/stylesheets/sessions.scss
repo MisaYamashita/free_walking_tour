@@ -1,11 +1,30 @@
-// Place all the styles related to the Sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .login-container {
   background-image: url('Atera.jpg');
-  height: 480px;
+  height: 550px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   width: auto;
  }
+ 
+.form-control {
+  width: 350px;
+}
+ 
+h1 {
+  color: white;
+  text-shadow: 
+     2px  2px 1px #330033,
+    -2px  2px 1px #330033,
+     2px -2px 1px #330033,
+    -2px -2px 1px #330033,
+     2px  0px 1px #330033,
+     0px  2px 1px #330033,
+    -2px  0px 1px #330033,
+     0px -2px 1px #330033;
+}
+ 
+ //反映されていない
+.text-white {
+  color: white;
+}
