@@ -17,7 +17,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "About", pages_about_path %></li>
-            <li><%= link_to "Contact", pages_contact_path %></li>
+            <li><%= link_to "Contact", inquiries_new_path %></li>
               <% if logged_in? %>
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Log out", logout_path, method: :delete %>

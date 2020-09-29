@@ -1,0 +1,17 @@
+<div class="inquiry-wrapper">
+  <div class="iquiry-container">
+    <h5>お問い合わせフォーム</h5>
+    
+    <%= form_for @inquiry do |f| %>
+      <div class="inquiry-form">
+        <%= f.label :title, "件名" %>
+        <%= f.text_field :title, class: 'inquery-title-form' %>
+      </div>
+      <div class="inquiry-form">
+        <%= f.label :message, "お問い合わせ内容" %>
+        <%= f.text_field :message, class: 'inquery-message-form' %>
+      </div>
+      <%= f.submit "送信", class: "btn btn-send" %>
+    <% end %>
+  </div>
+</div>

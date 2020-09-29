@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
   
+  #トップページアクション
   root 'pages#home'
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
   get '/signup', to: 'users#new'
+  
+  #問い合わせアクション
+  get 'inquiries/new'
+  get 'inquiries/create'
+  get '/inquiries', to: 'inquiries#new'
+  post '/inquiries', to: 'inquiries#create'
   
   #ログイン、ログアウトに関してのアクション
   get 'sessions/new'
