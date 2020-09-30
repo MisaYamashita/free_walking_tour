@@ -11,20 +11,15 @@
   width: 350px;
 }
  
-h1 {
+.title-log-in {
   color: white;
-  text-shadow: 
-     2px  2px 1px #330033,
-    -2px  2px 1px #330033,
-     2px -2px 1px #330033,
-    -2px -2px 1px #330033,
-     2px  0px 1px #330033,
-     0px  2px 1px #330033,
-    -2px  0px 1px #330033,
-     0px -2px 1px #330033;
+  text-shadow: 0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
 }
  
- //反映されていない
 .text-white {
   color: white;
+  text-shadow: 0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
 }
