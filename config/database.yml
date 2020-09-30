@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: free_walking_tour_production
-  username: free_walking_tour
-  password: <%= ENV['FREE_WALKING_TOUR_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

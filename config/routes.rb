@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'pages/home'
   get 'pages/about'
   get 'pages/contact'
+  
+  #新規登録アクション
   get '/signup', to: 'users#new'
   
   #問い合わせアクション

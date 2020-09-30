@@ -11,4 +11,6 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A[a-z0-9]{8,32}+\z/i   #半角英数字8-32文字               
   validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }
   has_secure_password
+  
+  has_one :profile
 end

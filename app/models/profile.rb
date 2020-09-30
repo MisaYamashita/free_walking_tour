@@ -1,14 +1,16 @@
 class Profile < ApplicationRecord
-  validate:profile, length: {maximum: 1000} 
-  validate:picture_size
+  validates :user_profile, length: {maximum: 1000} 
+  #validates :user_image, picture_size
   
-end
+
+belongs_to :user
 
 private
+
   def picture_size
     if picture.size > 5.megabytes
-      errors.add(:picture, "画像のサイズを5MB以下にしてください")
+      errors.add(:user_image, "画像のサイズを5MB以下にしてください")
     end
   end
   
-  
+end 
