@@ -30,7 +30,7 @@
     </header>
     
     <div class="main">
-      <% flash.each do |message_type, message| %>
+      <% flash.each do |message_type, message| %>  <!-- flashメッセージがある場合に表示させる -->
         <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
       <% end %>
       

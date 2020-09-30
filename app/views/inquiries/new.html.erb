@@ -6,8 +6,16 @@
       <%= form_for @inquiry do |f| %>
         <dl>
           <div class="inquiry-form">
+            <dt><%= f.label :name, "お名前" %></dt>
+            <dd><%= f.text_field :name, class: 'inquery-common-form' %></dd>
+          </div>
+          <div class="inquiry-form">
+            <dt><%= f.label :email, "連絡先メールアドレス" %></dt>
+            <dd><%= f.text_field :email, class: 'inquery-common-form' %></dd>
+          </div>
+          <div class="inquiry-form">
             <dt><%= f.label :title, "件名" %></dt>
-            <dd><%= f.text_field :title, class: 'inquery-title-form' %></dd>
+            <dd><%= f.text_field :title, class: 'inquery-common-form' %></dd>
           </div>
           <div class="inquiry-form">
             <dt><%= f.label :message, "お問い合わせ内容" %></dt>
