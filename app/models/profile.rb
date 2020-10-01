@@ -3,14 +3,16 @@ class Profile < ApplicationRecord
   #validates :user_image, picture_size
   
 
-belongs_to :user
+  belongs_to :user
+  
+  mount_uploader :user_image, ImageUploader
 
-private
+  private
 
-  def picture_size
-    if picture.size > 5.megabytes
-      errors.add(:user_image, "画像のサイズを5MB以下にしてください")
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:user_image, "画像のサイズを5MB以下にしてください")
+      end
     end
-  end
   
 end 

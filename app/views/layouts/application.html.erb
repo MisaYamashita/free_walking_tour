@@ -19,7 +19,7 @@
             <li><%= link_to "About", pages_about_path %></li>
             <li><%= link_to "Contact", inquiries_new_path %></li>
               <% if logged_in? %>
-                <li><%= link_to "Profile", profiles_new_path %></li>
+                <li><%= link_to "Profile", profile_show_path(current_user.id) %></li>
                 <li><%= link_to "Log out", logout_path, method: :delete %>
               <% else %>
                 <li><%= link_to "Log in", login_path %></li>

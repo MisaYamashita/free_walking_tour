@@ -1,0 +1,28 @@
+<!-- 未完成、未確認 -->
+<div class="profile-edit-wrapper">
+  <div class="profile-edit-container">
+    <div class="col-md-offset-4 col-md-6">
+      <h2>プロフィール編集</h2>
+      
+      <div class="s3_edit">
+        <p>既存画像のアップ</p>
+        <%= link_to "画像を変更する", '#' %>
+      </div>
+      
+      <%= form_for @profile do |f| %>
+        <dl>
+          <div class="profile-form">
+            <dt><%= f.label @user[:name], "お名前" %></dt>
+            <dd><%= f.text_field @user[:name], class: 'profile-name-form' %></dd>
+          </div>
+          <div class="profile-form">
+            <dt><%= f.label :user_profile, "プロフィール" %></dt>
+            <dd><%= f.text_field :user_profile, class: 'profile-body-form' %></dd>
+          </div>
+          
+        </dl>
+        <%= f.submit "更新", class: "btn btn-updated" %>
+      <% end %>
+    </div>
+  </div>
+</div>
