@@ -1,4 +1,6 @@
 class ProfilesController < ApplicationController
+  before_action :correct_user,   only: [:edit, :update]
+  
   def new
     @profile = Profile.new
   end
@@ -39,6 +41,10 @@ class ProfilesController < ApplicationController
       params.require(:profile).permit(:user_id, :user_image, :user_profile)
     end 
    
+    def correct_user
+     @user = User.find(params[:id])
+     redirect_to(root_url) unless current_user?(@user)
+    end
   
   
 end

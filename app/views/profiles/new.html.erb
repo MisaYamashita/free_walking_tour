@@ -4,7 +4,7 @@
       <h1>プロフィール</h1>
       <div class="left-main-container">
         <div class="profile-image">
-          <% if @profile.user_image? %>
+          <% if @profile.user_image.exist? %>
             <%= image_tag @profile.user_image.to_s, class: "profile-image" %>
           <% else %>
             <%= image_tag 'Kyoto.jpg', class: "profile-image" %>
@@ -18,7 +18,7 @@
         </div>
         <div class="profile-profile">
           <% if @profile.user_profile? %>
-            <span class="profile-body"><%= @profile.user_profile %></span>
+            <span class="profile-body"><%= @profile.user_profile %></span> <!-- 表示したいだけで、メソッドがないため、%= @profile.user_profile, class: "profile-bode" % では動作しない
           <% else %>
             <%= link_to "プロフィールを作成する", '#' %>
           <% end %>
