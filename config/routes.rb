@@ -26,8 +26,9 @@ Rails.application.routes.draw do
   
   #プロフィール画面に関してのアクション
   get 'profiles/new'
+  get 'users/:id/profiles/new', to: 'profiles#new'
   get 'users/:id/profile' , to: 'profiles#show', as: 'profile_show'
-  post 'users/:id/profile' , to: 'profiles#create'
+  post 'users/:id/profile' , to: 'profiles#edit', as: 'profile_edit'
   
   
   resources :users

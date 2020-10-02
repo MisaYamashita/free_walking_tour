@@ -3,25 +3,19 @@
     <div class="row">
       <h1>プロフィール</h1>
       <div class="left-main-container">
-        <div class="profile-image">
-          <% if @profile.user_image.exist? %>
-            <%= image_tag @profile.user_image.to_s, class: "profile-image" %>
-          <% else %>
-            <%= image_tag 'Kyoto.jpg', class: "profile-image" %>
-            <%= link_to "プロフィール画像をアップロードする", '#' %>
-          <% end %>
+        <div class="empty-profile-image">
+          <%= image_tag 'Kyoto.jpg', class: "profile-image" %>
+          <p>プロフィール画像がありません</p>
         </div>
       </div>
       <div class="right-main-container">
         <div class="profile-name">
+          <p class="name-title">名前</p>
           <%= current_user.name %>
         </div>
-        <div class="profile-profile">
-          <% if @profile.user_profile? %>
-            <span class="profile-body"><%= @profile.user_profile %></span> <!-- 表示したいだけで、メソッドがないため、%= @profile.user_profile, class: "profile-bode" % では動作しない
-          <% else %>
-            <%= link_to "プロフィールを作成する", '#' %>
-          <% end %>
+        <div class="empty-profile">
+          <p>プロフィールがありません</p>
+          <%= link_to "プロフィールを作成する", profile_edit_path(user) %>
         </div>
       </div>
     </div>

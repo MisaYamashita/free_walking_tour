@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
   end
   
   def edit
-    @profile = Profile.find(params[:user_id])
+    @profile = Profile.find_by(user_id: params[:id])
   end
   
   def update
