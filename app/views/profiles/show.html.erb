@@ -1,27 +1,36 @@
 <div class="profile-wrapper">
   <div class="profile-container">
     <div class="row">
-      <h1>プロフィール</h1>
+      <h3>プロフィール</h3>
       <div class="left-main-container">
         <div class="profile-image">
-          <% if @profile.user_image.blank? %>
-            <%= image_tag @profile.user_image.to_s, class: "profile-image" %>
+          <% if @profile.image.blank? %>
+            <%= image_tag @profile.image.to_s, class: "image-size" %>
           <% else %>
-            <%= image_tag 'Kyoto.jpg', class: "profile-image" %>
-            <%= link_to "プロフィール画像をアップロードする", '#' %>
+            <%= image_tag 'Kyoto.jpg', class: "image-size" %>
           <% end %>
         </div>
       </div>
       <div class="right-main-container">
         <div class="profile-name">
-          <%= current_user.name %>
+        　<div>
+            <p>＜お名前＞</p>
+          </div>
+          <div>
+            <%= current_user.name %>
+          </div>
         </div>
-        <div class="profile-profile">
-          <% if @profile.user_profile? %>
-            <span class="profile-body"><%= @profile.user_profile %></span>
-          <% else %>
-            <%= link_to "プロフィールを作成する", '#' %>
-          <% end %>
+        <div class="profile-body">
+          <div>
+            <p>＜プロフィール文＞</p>
+          </div>
+          <div>
+            <% if @profile.body? %>
+              <span class="profile-body"><%= @profile.body %></span>
+            <% else %>
+              <%= link_to "プロフィールを編集する", '#' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

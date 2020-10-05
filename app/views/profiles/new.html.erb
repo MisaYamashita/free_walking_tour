@@ -1,21 +1,33 @@
 <div class="profile-wrapper">
   <div class="profile-container">
     <div class="row">
-      <h1>プロフィール</h1>
+      <h5>プロフィールがありません</h5>
+      <h5>下記のフォームから登録してください</h5>
       <div class="left-main-container">
-        <div class="empty-profile-image">
-          <%= image_tag 'Kyoto.jpg', class: "profile-image" %>
-          <p>プロフィール画像がありません</p>
+        <div class="profile-image">
+          <%= image_tag 'Kyoto.jpg', class: 'image-size' %>
+          <p>＜プロフィール画像＞</p>
+          <%= form_for @profile, url: profiles_new_path do |f| %>
+            <%= f.label :image, "画像：" %>
+            <%= f.file_field :image %>
+          <% end %>
         </div>
       </div>
       <div class="right-main-container">
         <div class="profile-name">
-          <p class="name-title">名前</p>
+          <p class="name-title">＜名前＞</p>
           <%= current_user.name %>
         </div>
         <div class="empty-profile">
-          <p>プロフィールがありません</p>
-          <%= link_to "プロフィールを作成する", profile_edit_path(user) %>
+          <p>＜プロフィール文＞</p>
+          <%= form_for @profile, url: profiles_new_path do |f| %>
+          <div>
+        　  <%= f.text_field :body, class: 'body-form' %>
+        　</div>
+        　<div>
+        　  <%= f.submit "登録", class: "btn profile-btn" %>
+        　</div>
+          <% end %>
         </div>
       </div>
     </div>

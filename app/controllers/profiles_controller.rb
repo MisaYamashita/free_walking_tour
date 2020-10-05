@@ -1,16 +1,16 @@
 class ProfilesController < ApplicationController
-  before_action :correct_user,   only: [:edit, :update]
+  before_action :correct_user,   only: [:new, :create, :edit, :update]
   
   def new
     @profile = Profile.new
   end
   
   def create
-    @profile = current_user.profiles.new(profile_params)
-    profile[:user_id] = user[:id] 
+    @profile = Profile.new(profile_params)
+    @profile.user_id = current_user.id
     if @profile.save
       flash[:success] = "プロフィールの登録が完了しました"
-      redirect_to @profile #インスタンス変数指定の時はprofileのshowを見に行く
+      redirect_to profiles_show_path #インスタンス変数指定の時はprofileのshowを見に行く
     else
       flash.now[:danger] = "プロフィールの登録に失敗しました"
       render :new
@@ -38,12 +38,12 @@ class ProfilesController < ApplicationController
   private
   
     def profile_params
-      params.require(:profile).permit(:user_id, :user_image, :user_profile)
+      params.require(:profile).permit(:user_id, :image, :body)
     end 
    
     def correct_user
      @user = User.find(params[:id])
-     redirect_to(root_url) unless current_user?(@user)
+     redirect_to(root_url) unless @user == current_user
     end
   
   

@@ -25,10 +25,11 @@ Rails.application.routes.draw do
   get 'users/:id' , to: 'users#show'
   
   #プロフィール画面に関してのアクション
-  get 'profiles/new'
-  get 'users/:id/profiles/new', to: 'profiles#new'
-  get 'users/:id/profile' , to: 'profiles#show', as: 'profile_show'
-  post 'users/:id/profile' , to: 'profiles#edit', as: 'profile_edit'
+  #get 'profiles/new'
+  get 'users/:id/profiles', to: 'profiles#new', as: 'profiles_new'
+  post 'users/:id/profiles' , to: 'profiles#create'
+  get 'users/:id/profile/show' , to: 'profiles#show', as: 'profiles_show'
+  
   
   
   resources :users
