@@ -1,8 +1,9 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   include SessionsHelper
+  include ProfilesHelper
   
-  helper_method :current_user, :logged_in?, :has_profile
+  helper_method :current_user, :logged_in?, :has_profile?
   
   #入力されたユーザーでログインする
   def log_in(user)
@@ -28,9 +29,5 @@ class ApplicationController < ActionController::Base
     @current_user = nil
   end 
   
-  #ログインしているユーザーに関連付けられているプロフィールがあるか
-  def has_profile?
-    @profile.user_id.blank?
-  end 
-    
+  
 end
