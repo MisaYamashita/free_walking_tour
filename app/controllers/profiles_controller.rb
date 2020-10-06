@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  #before_action :logged_in_user, only: [:new, :create, :edit, :update]
   before_action :correct_user,   only: [:new, :create, :edit, :update]
   
   def new
@@ -26,8 +27,8 @@ class ProfilesController < ApplicationController
   end
   
   def update
-    @profile = Profile.find(params[:user_id])
-    if @profile.update_attributes(profile_params)
+    @profile = Profile.find_by(user_id: params[:id])
+    if @profile.update(profile_params)
       flash[:success] = "プロフィールを更新しました"
       redirect_to @profile
     else

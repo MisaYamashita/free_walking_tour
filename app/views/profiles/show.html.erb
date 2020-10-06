@@ -13,23 +13,18 @@
       </div>
       <div class="right-main-container">
         <div class="profile-name">
-        　<div>
-            <p>＜お名前＞</p>
-          </div>
-          <div>
-            <%= current_user.name %>
-          </div>
+          <h6>＜お名前＞</h6>
+          <%= current_user.name %>
         </div>
         <div class="profile-body">
+          <h6>＜プロフィール文＞</h6>
+          <% if @profile.body? %>
+            <span class="profile-body"><%= @profile.body %></span>
+          <% else %>
+            <p>プロフィール文がありません</p>
+          <% end %>
           <div>
-            <p>＜プロフィール文＞</p>
-          </div>
-          <div>
-            <% if @profile.body? %>
-              <span class="profile-body"><%= @profile.body %></span>
-            <% else %>
-              <%= link_to "プロフィールを編集する", '#' %>
-            <% end %>
+            <%= link_to "プロフィールを編集する", profiles_edit_path %>
           </div>
         </div>
       </div>

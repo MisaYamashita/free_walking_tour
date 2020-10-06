@@ -5,24 +5,33 @@
       <h2>プロフィール編集</h2>
       
       <div class="s3_edit">
-        <p>既存画像のアップ</p>
-        <%= link_to "画像を変更する", '#' %>
+        <% if @profile.image.blank? %>
+          <%= image_tag @profile.image.to_s, class: "image-size" %>
+        <% else %>
+          <%= image_tag 'Kyoto.jpg', class: "image-size" %>
+        <% end %>
+        <%= form_for @profile, url: profiles_edit_path do |f| %>
+          <%= f.label :image, "画像：" %>
+          <%= f.file_field :image %>
+        <% end %>
       </div>
-      
-      <%= form_for @profile do |f| %>
+      <div>
         <dl>
-          <div class="profile-form">
-            <dt><%= f.label @user[:name], "お名前" %></dt>
-            <dd><%= f.text_field @user[:name], class: 'profile-name-form' %></dd>
+          <div class="profile-name">
+            <%= form_for @user, url: profiles_edit_path do |f| %>
+              <dt><h6>＜お名前＞</h6></dt>
+              <dd><%= f.text_field :name, class: 'profile-name-form' %></dd>
+            <% end %>
           </div>
           <div class="profile-form">
-            <dt><%= f.label :body, "プロフィール" %></dt>
-            <dd><%= f.text_field :body, class: 'profile-body-form' %></dd>
+            <%= form_for @profile, url: profiles_edit_path do |f| %>
+              <dt><h6>＜プロフィール文＞</h6></dt>
+              <dd><%= f.text_field :body, class: 'profile-body-form' %></dd>
+              <dd><%= f.submit "更新", class: "btn btn-updated" %></dd>
+            <% end %>
           </div>
-          
         </dl>
-        <%= f.submit "更新", class: "btn btn-updated" %>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

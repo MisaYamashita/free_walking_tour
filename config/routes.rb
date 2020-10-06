@@ -29,7 +29,8 @@ Rails.application.routes.draw do
   get 'users/:id/profiles', to: 'profiles#new', as: 'profiles_new'
   post 'users/:id/profiles' , to: 'profiles#create'
   get 'users/:id/profile/show' , to: 'profiles#show', as: 'profiles_show'
-  
+  get 'users/:id/profile/edit' , to: 'profiles#edit', as: 'profiles_edit'
+  patch 'users/:id/profile/edit' , to: 'profiles#update'
   
   
   resources :users
