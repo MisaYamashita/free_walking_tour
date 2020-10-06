@@ -28,9 +28,9 @@ class ProfilesController < ApplicationController
   
   def update
     @profile = Profile.find_by(user_id: params[:id])
-    if @profile.update(profile_params)
+    if @profile.update!(profile_params)
       flash[:success] = "プロフィールを更新しました"
-      redirect_to @profile
+      redirect_to profiles_show_path
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class ProfilesController < ApplicationController
   private
   
     def profile_params
-      params.require(:profile).permit(:user_id, :image, :body)
+      params.require(:profile).permit(:user_id, :image, :body, user_attributes: [:id, :name, :email, :password])
     end 
    
     def correct_user

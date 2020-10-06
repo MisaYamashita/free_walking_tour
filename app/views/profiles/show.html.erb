@@ -4,7 +4,7 @@
       <h3>プロフィール</h3>
       <div class="left-main-container">
         <div class="profile-image">
-          <% if @profile.image.blank? %>
+          <% if !@profile.image.nil? %>
             <%= image_tag @profile.image.to_s, class: "image-size" %>
           <% else %>
             <%= image_tag 'Kyoto.jpg', class: "image-size" %>

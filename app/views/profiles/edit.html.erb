@@ -3,35 +3,35 @@
   <div class="profile-edit-container">
     <div class="col-md-offset-4 col-md-6">
       <h2>プロフィール編集</h2>
-      
-      <div class="s3_edit">
-        <% if @profile.image.blank? %>
-          <%= image_tag @profile.image.to_s, class: "image-size" %>
-        <% else %>
-          <%= image_tag 'Kyoto.jpg', class: "image-size" %>
-        <% end %>
-        <%= form_for @profile, url: profiles_edit_path do |f| %>
-          <%= f.label :image, "画像：" %>
-          <%= f.file_field :image %>
-        <% end %>
-      </div>
-      <div>
-        <dl>
-          <div class="profile-name">
-            <%= form_for @user, url: profiles_edit_path do |f| %>
-              <dt><h6>＜お名前＞</h6></dt>
-              <dd><%= f.text_field :name, class: 'profile-name-form' %></dd>
-            <% end %>
+      <%= form_for @profile, url: profiles_edit_path do |f| %>
+        <div class="s3_edit">
+          <% if @profile.image.blank? %>
+            <%= image_tag @profile.image.to_s, class: "image-size" %>
+          <% else %>
+            <%= image_tag 'Kyoto.jpg', class: "image-size" %>
+          <% end %>
+          <div>
+            <%= f.label :image, "画像：" %>
+            <%= f.file_field :image %>
           </div>
-          <div class="profile-form">
-            <%= form_for @profile, url: profiles_edit_path do |f| %>
+        </div>
+        <div>
+          <dl>
+            <div class="profile-name">
+              <%= f.fields_for 'user_attributes', @user do |u| %>
+              <%= u.hidden_field :id, :value => @user.id %><!-- usersテーブルのidを渡す -->
+                <dt><h6>＜お名前＞</h6></dt>
+                <dd><%= u.text_field :name, class: 'profile-name-form' %></dd>
+              <% end %>
+            </div>
+            <div class="profile-form">
               <dt><h6>＜プロフィール文＞</h6></dt>
               <dd><%= f.text_field :body, class: 'profile-body-form' %></dd>
               <dd><%= f.submit "更新", class: "btn btn-updated" %></dd>
-            <% end %>
-          </div>
-        </dl>
-      </div>
+            </div>
+          </dl>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

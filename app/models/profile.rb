@@ -4,7 +4,8 @@ class Profile < ApplicationRecord
   #validates :user_image, picture_size
   
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :profile
+  accepts_nested_attributes_for :user
   
   mount_uploader :image, ImageUploader
 
