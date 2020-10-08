@@ -1,0 +1,60 @@
+<div class="signup-wrapper">
+  <div class="signup-container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-6">
+        <h3>ツアーインフォメーション</h3>
+        <div class="tour-title-show">
+          <h5>＜ツアー名＞</h5>
+          <%= @tour.title %>
+        </div>
+        <div class="tour-date-show">
+          <h5>＜ツアー開催日時＞</h5>
+          <%= @tour.date %>
+        </div>
+        <div class="tour-detail-show">
+          <h5>＜ツアー内容＞</h5>
+          <%= @tour.detail %>
+        </div>
+        <div class="tour-address-show">
+          <h5>＜集合場所＞</h5>
+          <%= @tour.address %>
+          <%= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=ENV['API-key-google-map']&callback=initMap", async: true, defer: true %>
+          <script type="text/javascript">
+            function initMap() {
+            //latitude,longitudeから位置を特定
+              var geocoder = new google.maps.Geocoder();
+              var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                  lat: bon.tour.tatitude,
+                  lng: bon.tour.longitude
+                },
+                zoom: 15,
+              });
+              
+              var transitLayer = new google.maps.TransitLayer(); //ここから40行まで必要か謎
+              transitLayer.setMap(map);
+
+              var contentString = '集合場所：<%= @tour.address %>';
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+
+               //Map上の指定した位置にピンを挿して表示する
+              var marker = new google.maps.Marker({
+                position: {
+                lat: bon.tour.tatitude,
+                lng: bon.tour.longitude
+                },
+                map: map
+               });
+
+              marker.addListener('click', function() { //ここから下必要か謎
+                infowindow.open(map, marker);
+              });
+            }
+          </script>
+        </div>
+        <div>
+          <%= link_to "ツアー内容を変更する", '#' %>
+        </div>
+      <div>

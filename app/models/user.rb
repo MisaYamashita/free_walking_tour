@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :password, presence: true, format: { with: VALID_PASSWORD_REGEX }, allow_nil: true
   has_secure_password
   
-  has_one :profile
+  has_one :profile, dependent: :destroy
+  has_many :tours, dependent: :destroy
   
 end

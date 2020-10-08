@@ -4,11 +4,12 @@
     <title>FreeWalkingTour</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <%= include_gon %> 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  
   <body>
     <header class="navbar navbar-top navbar-inverse">
       <div class="container">
@@ -58,5 +59,8 @@
       </script>
     </div>
     
+    <footer>
+      
+    </footer>
   </body>
 </html>

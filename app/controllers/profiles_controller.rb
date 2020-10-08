@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     if @profile.save
       flash[:success] = "プロフィールの登録が完了しました"
-      redirect_to profiles_show_path #インスタンス変数指定の時はprofileのshowを見に行く
+      redirect_to profiles_show_path #もし@profileのようにインスタンス変数指定の時はprofileのshowを見に行く
     else
       flash.now[:danger] = "プロフィールの登録に失敗しました"
       render :new
@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
       flash[:success] = "プロフィールを更新しました"
       redirect_to profiles_show_path
     else
-      render 'edit'
+      render :edit
     end
   end 
 

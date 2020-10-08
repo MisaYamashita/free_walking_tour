@@ -34,9 +34,16 @@ gem 'bcrypt', '3.1.12'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.1.1' #date型カレンダー表示用
+gem "bootstrap4-datetime-picker-rails"  #date型カレンダー表示用
+gem 'momentjs-rails'  #date型カレンダー表示用
+gem "font-awesome-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+gem 'geocoder' #google map用 住所から緯度経度を算出する
+gem 'gon' #コントローラーで定義したインスタンス変数をビューのJavaScript内で使用出来る様にする
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -75,6 +82,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'dotenv-rails'
 
 
 

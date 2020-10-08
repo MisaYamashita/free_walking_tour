@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+@import "tempusdominus-bootstrap-4.css";
 @import 'pages';
 @import 'nav';
 @import 'users';
@@ -7,3 +9,4 @@
 @import 'shows';
 @import 'inquiries';
 @import 'profiles';
+@import 'tours';

@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  validates :user_id, uniqueness:true
+  validates :user_id, presence: true, uniqueness:true
   validates :body, length: {maximum: 1000} 
   #validates :user_image, picture_size
   
