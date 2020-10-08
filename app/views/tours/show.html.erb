@@ -18,15 +18,15 @@
         <div class="tour-address-show">
           <h5>＜集合場所＞</h5>
           <%= @tour.address %>
-          <%= javascript_include_tag src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=ENV['API-key-google-map']&callback=initMap", async: true, defer: true %>
+          <script defer src="https://maps.googleapis.com/maps/api/js?key=ENV['API-key-google-map']&callback=initMap"></script>
           <script type="text/javascript">
             function initMap() {
             //latitude,longitudeから位置を特定
               var geocoder = new google.maps.Geocoder();
               var map = new google.maps.Map(document.getElementById('map'), {
                 center: {
-                  lat: bon.tour.tatitude,
-                  lng: bon.tour.longitude
+                  lat: gon.tour.latitude,
+                  lng: gon.tour.longitude
                 },
                 zoom: 15,
               });
@@ -55,6 +55,7 @@
           </script>
         </div>
         <div>
-          <%= link_to "ツアー内容を変更する", '#' %>
+          <%= link_to "ツアー内容を変更する", users_tours_edit_path %>
+          <%= link_to "ツアーを削除する", users_tours_delete_path %>
         </div>
       <div>

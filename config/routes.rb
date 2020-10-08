@@ -40,13 +40,14 @@ Rails.application.routes.draw do
   
   #ツアー画面
   get 'users/:id/tours', to: 'tours#new'#, as: 'tours_new'
-  #post 'users/:id/tours' , to: 'tours#create'
-  #get 'users/:id/tours/show' , to: 'tours#show', as: 'tours_show'
-  #get 'users/:id/tours/edit' , to: 'tours#edit', as: 'tours_edit'
-  #patch 'users/:id/tours/edit' , to: 'tours#update'
+  post 'users/:id/tours' , to: 'tours#create'
+  get 'users/:user_id/tours/:id' , to: 'tours#show', as: 'users_tours_show'
+  get 'users/:user_id/tours/:id/edit' , to: 'tours#edit', as: 'users_tours_edit'
+  patch 'users/:user_id/tours/:id/edit' , to: 'tours#update'
+  delete 'users/:user_id/tours/:id', to: 'tours#destroy', as: 'users_tours_delete'
   
   resources :users
-  resources :tours
+  #resources :tours
   
   namespace :admin do
     resources :users, :profile, :pages

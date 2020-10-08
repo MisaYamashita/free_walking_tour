@@ -1,2 +1,26 @@
-<h1>Tours#edit</h1>
-<p>Find me in app/views/tours/edit.html.erb</p>
+<div class="tour-edit-wrapper">
+  <div class="tour-edit-container">
+    <h3>ツアー内容の変更</h3>
+    <%= form_for @tour, url: users_tours_edit_path do |f| %>
+      <div class="tour-title">
+        <%= f.label :title, "ツアー名" %>
+        <%= f.text_field :title, class: 'tour-input-form form-control' %>
+      </div>
+      <div class="tour-date">
+        <%= f.label :date, "ツアー開催日時" %>
+        <%= f.datetime_field :date, class: "datetimepicker-input form-control" %>
+      </div>
+      <div class="tour-detail">
+        <%= f.label :detail, "ツアーの詳細" %>
+        <%= f.text_field :detail, class: 'tour-input-form form-control' %>
+      </div>
+      <div class="tour-address">
+        <%= f.label :address, "ツアーの集合場所" %>
+        <%= f.text_field :address, class: 'tour-input-form form-control' %>
+      </div>
+      <div>
+        <%= f.submit "変更内容を登録する", class: "btn btn-updated" %>
+      </div>
+    <% end %>
+  </div>
+</div>

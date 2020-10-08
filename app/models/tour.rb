@@ -4,8 +4,8 @@ class Tour < ApplicationRecord
   validates :date, presence: true
   validates :detail, presence: true
   validates :address, presence: true
-  validates :latitude, presence: true
-  validates :longitude, presence: true
+  #validates :latitude, presence: true
+  #validates :longitude, presence: true
   
   #gmapについて
   geocoded_by :address #addressカラムを基準に緯度経度を算出する
