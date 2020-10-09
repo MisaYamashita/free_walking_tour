@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'tours/new'
-  get 'tours/create'
-  get 'tours/show'
-  get 'tours/edit'
-  get 'tours/update'
-  get 'tours/destroy'
   #トップページアクション
   root 'pages#home'
   get 'pages/home'
@@ -38,16 +32,11 @@ Rails.application.routes.draw do
   get 'users/:id/profile/edit' , to: 'profiles#edit', as: 'profiles_edit'
   patch 'users/:id/profile/edit' , to: 'profiles#update'
   
-  #ツアー画面
-  get 'users/:id/tours', to: 'tours#new'#, as: 'tours_new'
-  post 'users/:id/tours' , to: 'tours#create'
-  get 'users/:user_id/tours/:id' , to: 'tours#show', as: 'users_tours_show'
-  get 'users/:user_id/tours/:id/edit' , to: 'tours#edit', as: 'users_tours_edit'
-  patch 'users/:user_id/tours/:id/edit' , to: 'tours#update'
-  delete 'users/:user_id/tours/:id', to: 'tours#destroy', as: 'users_tours_delete'
-  
   resources :users
-  #resources :tours
+  
+  resources :users do
+    resources :tours
+  end
   
   namespace :admin do
     resources :users, :profile, :pages

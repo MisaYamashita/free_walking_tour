@@ -22,12 +22,9 @@
           <script type="text/javascript">
             function initMap() {
             //latitude,longitudeから位置を特定
-              var geocoder = new google.maps.Geocoder();
+              var test ={lat: <%= @tour.latitude %>, lng: <%= @tour.longitude %>};
               var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                  lat: gon.tour.latitude,
-                  lng: gon.tour.longitude
-                },
+                center: test
                 zoom: 15,
               });
               
@@ -41,11 +38,9 @@
 
                //Map上の指定した位置にピンを挿して表示する
               var marker = new google.maps.Marker({
-                position: {
-                lat: bon.tour.tatitude,
-                lng: bon.tour.longitude
-                },
+                position: test,
                 map: map
+                title: contentString
                });
 
               marker.addListener('click', function() { //ここから下必要か謎
@@ -55,7 +50,7 @@
           </script>
         </div>
         <div>
-          <%= link_to "ツアー内容を変更する", users_tours_edit_path %>
-          <%= link_to "ツアーを削除する", users_tours_delete_path %>
+          <%= link_to "ツアー内容を変更する", edit_user_tour_path %>
+          <%= link_to "ツアーを削除する", user_tour_path, method: :delete %>
         </div>
       <div>
