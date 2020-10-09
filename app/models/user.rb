@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_secure_password
   
   has_one :profile, dependent: :destroy
-  has_many :tours, dependent: :destroy
+  has_many :user_tours, dependent: :destroy
+  has_many :tours, through: :user_tours
   
 end
