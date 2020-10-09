@@ -9,6 +9,11 @@
   <div class="user-middle-container">
     <div class="col-md-4 prfile-wapper">
       <p>プロフィール</p>
+      <%= image_tag 'Kyoto.jpg', class: "side-image-size" %><br>
+      <p>＜お名前＞</p><br>
+      <%= current_user.name %><br>
+      <p>＜プロフィール文＞</p><br>
+      <%= current_user.profile.body %><br>
     </div>
     <div class="col-md-offset-4 col-md-6 your-activity">
       <p>予定表</p>
