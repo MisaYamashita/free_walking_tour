@@ -15,5 +15,22 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :user_tours, dependent: :destroy
   has_many :tours, through: :user_tours
+  accepts_nested_attributes_for :user_tours, allow_destroy: true
   
+  
+  #参加するメソッド
+  def add_tour(tour)
+    user_tours.find_or_create_by(tour_id: @tour.id)
+  end 
+  
+  #参加を中止するメソッド
+  def remove_tour(tour)
+    user_tour = user_tours.find_by(tour_id: @tour.id)
+    user_tour.destroy if user_tour
+  end 
+  
+  def check_added?(tour)
+    self.tours.include?(@tour)  #self.toursのtoursはhas_manyで定義したものなので、モデルで複数形で定義していたら同じにする
+  end 
+    
 end

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       flash[:success] = "登録が完了しました"
       redirect_to @user #ログイン後のページと同じ
     else
-      flash.now[:danger] = "登録に失敗しました"
+      #flash.now[:danger] = "登録に失敗しました"   パーシャルで埋め込みでメッセージ対応
       render :new
     end 
   end
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     flash[:success] = "ユーザーを削除しました"
     redirect_to users_url
   end 
-    
+  
   private
   
    def user_params

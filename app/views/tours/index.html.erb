@@ -1,0 +1,13 @@
+<div class="tour-index-wrapper">
+  <div class="tour-index-container">
+    <h2>ツアー一覧</h2>
+    <div class="tour-index-list">
+      <% @tours.each do |tour| %>
+        <li>
+          <%= link_to tour.title, '#' %> <!--user_tour_path(user_id, @tour.id)?? -->
+        </li>
+      <% end %>
+      <%= link_to '戻る', :back, class: "back-btn" %>
+    </div>
+  </div>
+</div>

@@ -11,5 +11,6 @@ class Tour < ApplicationRecord
   geocoded_by :address #addressカラムを基準に緯度経度を算出する
   after_validation :geocode, if: :address_changed? #住所変更時に緯度経度も変更する
   
+  has_many :user_tours
   has_many :user, through: :user_tours
 end

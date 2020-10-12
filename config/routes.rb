@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'user_tours/create'
+  get 'user_tours/destroy'
   #トップページアクション
   root 'pages#home'
   get 'pages/home'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   
   #新規登録アクション
   get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
   
   #問い合わせアクション
   get 'inquiries/new'
@@ -32,11 +35,16 @@ Rails.application.routes.draw do
   get 'users/:id/profile/edit' , to: 'profiles#edit', as: 'profiles_edit'
   patch 'users/:id/profile/edit' , to: 'profiles#update'
   
+  #ツアー検索一覧
+  get '/tours', to: 'tours#index', as: 'all_tour'
+  
   resources :users
   
   resources :users do
     resources :tours
   end
+  
+  
   
   namespace :admin do
     resources :users, :profile, :pages

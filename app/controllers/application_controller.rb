@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :info, :warning, :danger
   include SessionsHelper
   include ProfilesHelper
+  include ToursHelper
   
   helper_method :current_user, :logged_in?, :has_profile?
   
