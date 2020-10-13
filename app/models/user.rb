@@ -14,7 +14,7 @@ class User < ApplicationRecord
   
   has_one :profile, dependent: :destroy
   has_many :user_tours, dependent: :destroy
-  has_many :tours, through: :user_tours
+  has_many :tours
   accepts_nested_attributes_for :user_tours, allow_destroy: true
   
   

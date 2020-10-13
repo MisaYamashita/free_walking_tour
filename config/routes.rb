@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   #マイページに関してのアクション
-  get 'users/:id' , to: 'users#show'
+  #get 'users/:id' , to: 'users#show'
   
   #プロフィール画面に関してのアクション
   #get 'profiles/new'

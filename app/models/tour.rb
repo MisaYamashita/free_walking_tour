@@ -11,12 +11,13 @@ class Tour < ApplicationRecord
   geocoded_by :address #addressカラムを基準に緯度経度を算出する
   after_validation :geocode, if: :address_changed? #住所変更時に緯度経度も変更する
   
+  belongs_to :user
   has_many :user_tours
-  has_many :user, through: :user_tours
+  has_many :users, through: :user_tours
   
-  def self.search(search)
+  def self.search(search) #self.はTour.を意味する
     if search
-      where(['address LIKE ?', "%#{search}%"])
+      where(['address LIKE ?', "%#{search}%"]) #検索とaddressの部分一致を表示する
     else
       all
     end
