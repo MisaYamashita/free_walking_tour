@@ -1,6 +1,6 @@
 class ToursController < ApplicationController
   def index
-    @tours = Tour.all
+    @search_tours = Tour.all.search(params[:search])
   end 
   
   def new

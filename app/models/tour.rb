@@ -13,4 +13,14 @@ class Tour < ApplicationRecord
   
   has_many :user_tours
   has_many :user, through: :user_tours
+  
+  def self.search(search)
+    if search
+      where(['address LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+  
 end
+ 
