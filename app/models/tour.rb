@@ -4,7 +4,7 @@ class Tour < ApplicationRecord
   validates :date, presence: true
   validates :detail, presence: true
   validates :address, presence: true
-  #validates :latitude, presence: true
+  #validates :latitude, presence: true #経緯と緯度が取れるまではコメントアウト
   #validates :longitude, presence: true
   
   #ツアー一覧はツアー開催日順に表示する
@@ -16,7 +16,7 @@ class Tour < ApplicationRecord
   
   belongs_to :user
   has_many :user_tours
-  has_many :users, through: :user_tours
+  has_many :users
   
   def self.search(search) #self.はTour.を意味する
     if search

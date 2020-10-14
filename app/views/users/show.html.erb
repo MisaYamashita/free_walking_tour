@@ -41,9 +41,9 @@
       <div class="your-plan-container">
         <h5>＜<%= current_user.name %>さんの予定表＞</h5>
         <h6>参加予定のツアー、開催予定のツアーが表示されます</h6>
-        <% current_user.tours.each do |tour| %>
+        <% @user.tours.each do |tour| %>
           <div class="tour-box-list">
-            <%= link_to tour.title, tour_path(id: tour.id)  %><P>開催日時：<%= l tour.date %></P>
+            <%= link_to tour.title, tour_path(id: tour.id) %><P>開催日時：<%= l tour.date %></P>
           </div>
         <% end %>
       </div>
