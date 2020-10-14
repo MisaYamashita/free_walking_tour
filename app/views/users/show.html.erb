@@ -8,7 +8,7 @@
   </div>
   <div class="user-middle-container">
     <div class="col-md-3 prfile-wapper">
-      <p>プロフィール</p>
+      <p><%= current_user.name %>さんのプロフィール</p>
       <%= image_tag 'Kyoto.jpg', class: "side-image-size" %><br>
       <p>＜お名前＞</p><br>
       <%= current_user.name %><br>
@@ -34,7 +34,7 @@
           <h6>参加予定のツアー、開催予定のツアーが表示されます</h6>
             <% current_user.tours.each do |tour| %>
               <div class="tour-box-list">
-                <%= link_to tour.title, '#' %><P>開催日時：<%= tour.date %></P>
+                <%= link_to tour.title, '#' %><P>開催日時：<%= l tour.date %></P>
               </div>
             <% end %>
         </div>

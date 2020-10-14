@@ -4,9 +4,7 @@
     <div class="tour-index-list">
       <% if @search_tours %>
         <% @search_tours.each do |tour| %>
-          <li>
-            <%= link_to tour.title, '#' %> <!--user_tour_path(user_id, @tour.id)?? -->
-          </li>
+          <%= link_to tour.title, '#' %><P>開催日時：<%= l tour.date %></P> <!--user_tour_path(user_id, @tour.id)?? -->
         <% end %>
       <% end %>
       <%= link_to '戻る', :back, class: "back-btn" %>

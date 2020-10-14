@@ -10,7 +10,9 @@ module FreeWalkingTour
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+    #タイムゾーンを東京に設定
     config.time_zone = 'Asia/Tokyo'
+    #デフォルトのローカルを日本に設定
     config.i18n.default_locale = :ja
     
     config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]   #carrierwaveインストール後、rails cでエラーにならないように設定する
