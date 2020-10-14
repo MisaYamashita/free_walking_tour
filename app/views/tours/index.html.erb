@@ -4,7 +4,7 @@
     <div class="tour-index-list">
       <% if @search_tours %>
         <% @search_tours.each do |tour| %>
-          <%= link_to tour.title, '#' %><P>開催日時：<%= l tour.date %></P> <!--user_tour_path(user_id, @tour.id)?? -->
+          <%= link_to tour.title, tour_path(id: tour.id) %><P>開催日時：<%= l tour.date %></P> <!--user_tour_path(user_id, @tour.id)?? -->
         <% end %>
       <% end %>
       <%= will_paginate @search_tours, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %><br>

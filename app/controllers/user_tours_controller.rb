@@ -2,12 +2,12 @@ class UserToursController < ApplicationController
   #ツアー参加テーブル
   
   def create
-    user_tour = User_tours.new
-    user_tour.user_id = current_user.id
-    user_tour.tour_id = params[:tour_id]    
-    if user_tour.save
+    @user_tour = UserTour.new
+    @user_tour.user_id = current_user.id
+    @user_tour.tour_id = params[:tour_id]    
+    if @user_tour.save
      flash[:success] = "このツアーに参加します"
-     redirect user_tours_path(tour.id)
+     redirect_to tour_path(@user_tour.tour_id)
     end 
   end
 

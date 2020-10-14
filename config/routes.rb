@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  get 'user_tours/create'
+  post 'user_tours/create'
   get 'user_tours/destroy'
   #トップページアクション
   root 'pages#home'
@@ -40,9 +40,7 @@ Rails.application.routes.draw do
   
   resources :users
   
-  resources :users do
-    resources :tours
-  end
+  resources :tours
   
   
   

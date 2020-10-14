@@ -13,7 +13,7 @@ class ToursController < ApplicationController
     @tour.user_id = current_user.id
     if @tour.save
       flash[:success] = "ツアーを作成しました"
-      redirect_to user_tour_path(current_user.id, @tour.id)
+      redirect_to tour_path(@tour.id)
     else
       flash.now[:danger] = "ツアーの作成に失敗しました"
       render :new
@@ -32,7 +32,7 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     if @tour.update!(tour_params)
       flash[:success] = "ツアー内容をを変更しました"
-      redirect_to user_tour_path(current_user.id, @tour.id)
+      redirect_to tour_path(@tour.id)
     else
       render :edit
     end

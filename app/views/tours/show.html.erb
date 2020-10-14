@@ -1,4 +1,4 @@
-<div class="tour-wrapper">    <!-- ユーザーがツアー作成後に見れる画面 -->
+<div class="tour-wrapper">    
   <div class="tour-container">
     <div class="row">
       <div class="col-md-offset-4 col-md-6">
@@ -51,17 +51,17 @@
         </div>
         <% if organizer? %>
           <div class="tour-btn">
-            <%= link_to "ツアー内容を変更する", edit_user_tour_path %>
+            <%= link_to "ツアー内容を変更する", edit_tour_path %>
           </div>
           <div class="tour-btn">
-            <%= link_to "ツアーを削除する", user_tour_path, method: :delete %>
+            <%= link_to "ツアーを削除する", tour_path, method: :delete %>
           </div>
         <% else %>
           <div class="tour-contact">
             <p>ツアーに関してのお問い合わせはこちら</p>
             <%= link_to "問い合わせ", '#' %>
           </div>
-          <%= link_to "ツアーに参加する", '#' %>
+          <%= link_to "ツアーに参加する", user_tours_create_path(tour_id: @tour.id), method: :post %>
         <% end %>
       <div>
     <div>

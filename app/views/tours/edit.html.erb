@@ -1,7 +1,7 @@
 <div class="tour-edit-wrapper">
   <div class="tour-edit-container">
     <h3>ツアー内容の変更</h3>
-    <%= form_for @tour, url: user_tour_path do |f| %>
+    <%= form_for @tour, url: tour_path do |f| %>
       <div class="tour-title">
         <%= f.label :title, "ツアー名" %>
         <%= f.text_field :title, class: 'tour-input-form form-control' %>

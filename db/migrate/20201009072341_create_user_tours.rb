@@ -6,8 +6,5 @@ class CreateUserTours < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :user_tours, :user
-    add_index :user_tours, :tour
-    add_index :user_tours, [:user, :tour], unique: true
   end
 end
