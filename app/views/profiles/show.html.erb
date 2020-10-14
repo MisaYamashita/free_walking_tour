@@ -24,7 +24,8 @@
             <p>プロフィール文がありません</p>
           <% end %>
           <div>
-            <%= link_to "プロフィールを編集する", profiles_edit_path %>
+            <%= link_to "プロフィールを編集する", profiles_edit_path %><br>
+            <%= link_to '戻る', :back, class: "back-btn" %>
           </div>
         </div>
       </div>

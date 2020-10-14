@@ -1,6 +1,7 @@
 class ToursController < ApplicationController
   def index
     @search_tours = Tour.all.search(params[:search])
+    @search_tours = Tour.paginate(page: params[:page], per_page: 10)
   end 
   
   def new
