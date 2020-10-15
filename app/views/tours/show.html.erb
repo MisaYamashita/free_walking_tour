@@ -61,8 +61,14 @@
             <p>ツアーに関してのお問い合わせはこちら</p>
             <%= link_to "問い合わせ", '#' %>
           </div>
-          <%= link_to user_tours_create_path(tour_id: @tour.id), method: :post do %>
-            <button class="btn plan-btn">このツアーに参加する</button>
+          <% if @tour.joined_users.include?(current_user) %>
+            <%= link_to user_tours_destroy_path(tour_id: @tour.id) do %>
+              <button class="btn plan-btn">このツアーの参加をキャンセルする</button>
+            <% end %>
+          <% else %>
+            <%= link_to user_tours_create_path(tour_id: @tour.id) do %>
+              <button class="btn plan-btn">このツアーに参加する</button>
+            <% end %>
           <% end %>
         <% end %>
       <div>

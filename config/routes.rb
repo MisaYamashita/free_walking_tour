@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'user_tours/create'
   post 'user_tours/create'
   get 'user_tours/destroy'
+  delete 'user_tours/destroy'
   #トップページアクション
   root 'pages#home'
   get 'pages/home'

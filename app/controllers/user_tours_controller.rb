@@ -12,9 +12,9 @@ class UserToursController < ApplicationController
   end
 
   def destroy
-    tour = Tour.find(params[:tour_id])
-    current_user.remove_tour(tour)
+    @user_tour = UserTour.find_by(user_id: current_user.id, tour_id: params[:tour_id])
+    @user_tour.destroy
     flash[:success] = "このツアーへの参加を中止しました"
-    redirect user_tours_path
+    redirect_to tour_path(@user_tour.tour_id)
   end
 end
