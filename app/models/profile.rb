@@ -4,7 +4,7 @@ class Profile < ApplicationRecord
   #validates :user_image, picture_size
   
 
-  belongs_to :user, inverse_of: :profile
+  belongs_to :user
   #accepts_nested_attributes_for :user　#プロフィールで名前を変更できるようにuserをプロフィールにネストする
   
   mount_uploader :image, ImageUploader

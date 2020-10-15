@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  
+  #中間テーブル(参加者)のアクション
   get 'user_tours/create'
   post 'user_tours/create'
   get 'user_tours/destroy'
   delete 'user_tours/destroy'
+  
   #トップページアクション
   root 'pages#home'
   get 'pages/home'
@@ -32,10 +33,10 @@ Rails.application.routes.draw do
   #プロフィール画面に関してのアクション
   #get 'profiles/new'
   get 'users/:id/profiles', to: 'profiles#new', as: 'profiles_new'
-  post 'users/:id/profiles' , to: 'profiles#create'
-  get 'users/:id/profile/show' , to: 'profiles#show', as: 'profiles_show'
-  get 'users/:id/profile/edit' , to: 'profiles#edit', as: 'profiles_edit'
-  patch 'users/:id/profile/edit' , to: 'profiles#update'
+  post 'users/:id/profiles', to: 'profiles#create'
+  get 'users/:id/profile/show', to: 'profiles#show', as: 'profiles_show'
+  get 'users/:id/profile/edit', to: 'profiles#edit', as: 'profiles_edit'
+  patch 'users/:id/profile/edit', to: 'profiles#update'
   
   #ツアー検索一覧
   get '/tours', to: 'tours#index', as: 'all_tour'

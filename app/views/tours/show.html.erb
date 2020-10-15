@@ -7,6 +7,10 @@
           <h5>＜ツアー名＞</h5>
           <%= @tour.title %>
         </div>
+        <div class="tour-guid-show">
+          <h5>＜ツアー主催者＞</h5>
+          <%= link_to @tour.user.name, profiles_show_path(@tour.user.id) %>
+        </div>
         <div class="tour-date-show">
           <h5>＜ツアー開催日時＞</h5>
           <%= l @tour.date %>

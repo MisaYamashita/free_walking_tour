@@ -10,11 +10,15 @@
     <div class="col-md-3">
       <div class="prfile-wapper">
         <p><%= current_user.name %>さんのプロフィール</p>
-        <%= image_tag 'Kyoto.jpg', class: "side-image-size" %><br>
+        <%= image_tag 'rails.png', class: "side-image-size" %><br>
         <p>＜お名前＞</p><br>
         <%= current_user.name %><br>
         <p>＜プロフィール文＞</p><br>
-        <%= current_user.profile.body %><br>
+        <% if current_user.profile.nil? %>
+          <p>プロフィール文がありません</p>
+        <% else %>
+          <%= current_user.profile.body %><br>
+        <% end %>
       </div>
     </div>
     <div class="col-md-offset-3 col-md-4">
