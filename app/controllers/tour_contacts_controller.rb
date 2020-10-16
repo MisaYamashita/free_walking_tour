@@ -1,6 +1,7 @@
 class TourContactsController < ApplicationController
   def new
     @tour_contact = TourContact.new
+    @tour_contact.tour_id = params[:tour_id]
   end
 
   def create
@@ -17,6 +18,6 @@ class TourContactsController < ApplicationController
   
   private
     def tour_contact_params
-      params.require(:tour_contact).permit(:name, :email, :title, :message)
+      params.require(:tour_contact).permit(:tour_id, :name, :email, :title, :message)
     end 
 end

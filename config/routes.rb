@@ -41,17 +41,14 @@ Rails.application.routes.draw do
   #ツアー検索一覧
   get '/tours', to: 'tours#index', as: 'all_tour'
   
-  #問い合わせアクション'
+  #ツアー詳細問い合わせアクション'
   get '/tours/:id/tour_contact', to: 'tour_contacts#new', as: 'tour_contacts_new'
-  post '/tours/:id/tour_contact', to: 'tour_contacts#create', as: 'tour_contacts_create'
   get '/tours/:id/tour_contact', to: 'tour_contacts#create'
-  
+  post '/tours/:id/tour_contact', to: 'tour_contacts#create', as: 'tour_contacts_create'
   
   resources :users
   
   resources :tours
-  
-  
   
   namespace :admin do
     resources :users, :profile, :pages

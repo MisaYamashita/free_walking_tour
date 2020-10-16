@@ -5,6 +5,7 @@
       
       
       <%= form_for @tour_contact, url: tour_contacts_create_path do |f| %>
+        <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
         <dl>
           <div class="tour-contact-form">
             <dt><%= f.label :name, "お名前" %></dt>
