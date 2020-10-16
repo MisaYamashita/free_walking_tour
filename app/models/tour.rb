@@ -16,7 +16,8 @@ class Tour < ApplicationRecord
   
   belongs_to :user
   has_many :user_tours
-  has_many :joined_users, through: :user_tours, source: 'user'
+  has_many :joined_users, through: :user_tours, source: 'user' #ツアーに参加するユーザーリスト
+  
   
   def self.search(search) #self.はTour.を意味する
     if search

@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :user_tours, dependent: :destroy
   has_many :tours
+  has_many :joined_tours, through: :user_tours, source: 'tour' #ユーザーが参加するツアーリスト
   
   accepts_nested_attributes_for :user_tours, allow_destroy: true  #親モデルの更新の時、子モデルもまとめて更新できるようにする
   
