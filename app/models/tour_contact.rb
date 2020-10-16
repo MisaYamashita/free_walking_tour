@@ -1,9 +1,10 @@
-class Inquiry < ApplicationRecord
-  validates :name, length: { maximum: 50 }
-  
+class TourContact < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }
                       
-  validates :message, presence: true, length: { maximum: 1000 }
+  validates :message, presence: true
+                      
+                      
+  belongs_to :tour
 end
