@@ -1,7 +1,7 @@
 class TourContactsController < ApplicationController
   def new
     @tour_contact = TourContact.new
-    @tour_contact.tour_id = params[:tour_id]
+    @tour_contact.tour_id = params[:id] #newのURIにidがあるため、そのidをtour_idに代入する
   end
 
   def create

@@ -1,31 +1,33 @@
 <div class="tour-contact-wrapper">
   <div class="tour-contact-container">
-    <div class="col-md-offset-4 col-md-4">
-      <h2>お問い合わせフォーム</h2>
-      
-      
-      <%= form_for @tour_contact, url: tour_contacts_create_path do |f| %>
-        <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
-        <dl>
-          <div class="tour-contact-form">
-            <dt><%= f.label :name, "お名前" %></dt>
-            <dd><%= f.text_field :name, class: 'inquery-common-form form-control' %></dd>
-          </div>
-          <div class="tour-contact-form">
-            <dt><%= f.label :email, "連絡先メールアドレス" %></dt>
-            <dd><%= f.text_field :email, class: 'inquery-common-form form-control' %></dd>
-          </div>
-          <div class="tour-contact-form">
-            <dt><%= f.label :title, "件名" %></dt>
-            <dd><%= f.text_field :title, class: 'inquery-common-form form-control' %></dd>
-          </div>
-          <div class="tour-contact">
-            <dt><%= f.label :message, "お問い合わせ内容" %></dt>
-            <dd><%= f.text_field :message, class: 'inquery-message-form form-control' %></dd>
-          </div>
-        </dl>
-        <%= f.submit "送信", class: "btn btn-send" %>
-      <% end %>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <h2>お問い合わせフォーム</h2>
+        <p class="tour-contact-tour-title">ツアー名</p>
+        <%= @tour_contact.tour.title %>
+        <%= form_for @tour_contact, url: tour_contacts_create_path do |f| %>
+          <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
+          <dl>
+            <div class="tour-contact-form">
+              <dt><%= f.label :name, "お名前" %></dt>
+              <dd><%= f.text_field :name, class: 'inquery-common-form form-control' %></dd>
+            </div>
+            <div class="tour-contact-form">
+              <dt><%= f.label :email, "連絡先メールアドレス" %></dt>
+              <dd><%= f.text_field :email, class: 'inquery-common-form form-control' %></dd>
+            </div>
+            <div class="tour-contact-form">
+              <dt><%= f.label :title, "件名" %></dt>
+              <dd><%= f.text_field :title, class: 'inquery-common-form form-control' %></dd>
+            </div>
+            <div class="tour-contact">
+              <dt><%= f.label :message, "お問い合わせ内容" %></dt>
+              <dd><%= f.text_field :message, class: 'inquery-message-form form-control' %></dd>
+            </div>
+          </dl>
+          <%= f.submit "送信", class: "btn btn-send" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

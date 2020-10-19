@@ -63,7 +63,7 @@
         <% else %>
           <div class="tour-contact">
             <p>ツアーに関してのお問い合わせはこちら</p>
-            <%= link_to "問い合わせ", tour_contacts_new_path(tour_id: @tour.id) %>
+            <%= link_to "問い合わせ", tour_contacts_new_path %>
           </div>
           <% if @tour.joined_users.include?(current_user) %> <!--ツアーの参加者リストにcurrent_userがいたら以下を実行 -->
             <%= link_to user_tours_destroy_path(tour_id: @tour.id) do %>
