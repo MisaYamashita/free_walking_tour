@@ -1,0 +1,35 @@
+<div class="review-new-wrapper">
+  <div class="review-new-container">
+    <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+        <h2 class="page-title">レビュー</h2>
+        <p class="review-tour-title">ツアー名</p>
+        <%= @review.tour.title %>
+        <%= form_for @review, url: tour_reviews_path do |f| %>
+          <%= f.hidden_field :tour_id, value: @review.tour_id %>
+          <dl>
+            <div class="review-form star">
+              <dt><%= f.label :rate, "評価" %></dt>
+              <dd><%= f.hidden_field :rate, class: 'review-star' %></dd>
+            </div>
+            <script>
+            $('.star').raty({  //星表示のソース
+              size     : 40,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              scoreName: 'review[rate]', //reviewモデルのrateカラムに値を保存する
+              half: true,
+            });
+            </script>
+            <div class="review-form">
+              <dt><%= f.label :body, "レビュー内容" %></dt>
+              <dd><%= f.text_field :body, class: 'review-common-form form-control' %></dd>
+            </div>
+            </dl>
+          <%= f.submit "投稿", class: "btn btn-send" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

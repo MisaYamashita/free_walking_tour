@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   #中間テーブル(参加者)のアクション
   get 'user_tours/create'
   post 'user_tours/create'
@@ -27,11 +28,7 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
-  #マイページに関してのアクション
-  #get 'users/:id' , to: 'users#show'
-  
   #プロフィール画面に関してのアクション
-  #get 'profiles/new'
   get 'users/:id/profiles', to: 'profiles#new', as: 'profiles_new'
   post 'users/:id/profiles', to: 'profiles#create'
   get 'users/:id/profile/show', to: 'profiles#show', as: 'profiles_show'
@@ -48,7 +45,9 @@ Rails.application.routes.draw do
   
   resources :users
   
-  resources :tours
+  resources :tours do
+    resources :reviews
+  end 
   
   namespace :admin do
     resources :users, :profile, :pages
