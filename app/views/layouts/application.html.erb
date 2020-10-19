@@ -28,7 +28,7 @@
             <li><%= link_to "Contact", inquiries_new_path %></li>
             <% if logged_in? %> <!--ログイン後に表示されるメニュー-->
               <% if has_profile? %>
-                <li><%= link_to "Profile", new_profile_path %></li>　<!--プロフィールデータがなければnewアクションへ-->
+                <li><%= link_to "Profile", profiles_new_path %></li>　<!--プロフィールデータがなければnewアクションへ-->
               <% else %>
                 <li><%= link_to "Profile", profiles_show_path(current_user.id) %></li> <!--プロフィールデータがある場合はshowアクションへ-->
               <% end %>

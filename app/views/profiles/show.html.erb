@@ -1,20 +1,14 @@
 <div class="profile-wrapper">
-  <div class="profile-container">
+  <div class="container profile-container">
     <div class="row">
-      <h3>プロフィール</h3>
-      <div class="left-main-container">
+      <div class="col-md-offset-4">
+      <h3><%= @profile.user.name %>さんのプロフィール</h3>
         <div class="profile-image">
           <% if !@profile.image.nil? %>
             <%= image_tag @profile.image.to_s, class: "image-size" %>
           <% else %>
             <%= image_tag 'rails.png', class: "image-size" %>
           <% end %>
-        </div>
-      </div>
-      <div class="right-main-container">
-        <div class="profile-name">
-          <h6>＜お名前＞</h6>
-          <%= @profile.user.name %>
         </div>
         <div class="profile-body">
           <h6>＜プロフィール文＞</h6>

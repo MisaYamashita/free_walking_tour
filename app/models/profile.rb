@@ -5,7 +5,6 @@ class Profile < ApplicationRecord
   
 
   belongs_to :user
-  #accepts_nested_attributes_for :user　#プロフィールでUserテーブルのデータが変更できるようにuserをプロフィールにネストする
   
   mount_uploader :image, ImageUploader
 
