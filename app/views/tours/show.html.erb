@@ -1,7 +1,7 @@
 <div class="tour-wrapper">    
-  <div class="tour-container">
+  <div class="container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-6">
+      <div class="col-md-offset-3 col-md-6">
         <h3>ツアーインフォメーション</h3>
         <div class="tour-title-show">
           <h5>＜ツアー名＞</h5>
@@ -62,8 +62,8 @@
           </div>
         <% else %>
           <div class="tour-contact">
-            <p>ツアーに関してのお問い合わせはこちら</p>
-            <%= link_to "問い合わせ", tour_contacts_new_path %>
+            <h5>＜お問い合わせ＞</h5>
+            <P>このツアーに関してのお問い合わせは<%= link_to "こちら", tour_contacts_new_path %></P>
           </div>
           <% if @tour.joined_users.include?(current_user) %> <!--ツアーの参加者リストにcurrent_userがいたら以下を実行 -->
             <%= link_to user_tours_destroy_path(tour_id: @tour.id) do %>
@@ -74,8 +74,32 @@
               <button class="btn plan-btn">このツアーに参加する</button>
             <% end %>
           <% end %>
+          <div class="write-review">
+            <% if !@tour.reviewed_users.include?(current_user) %>
+              <%= link_to "このツアーのレビューを書く", new_tour_review_path(tour_id: @tour.id) %>
+            <% end %>
+          </div>
         <% end %>
-      <div>
+      </div>
+      <div class="star-rate">
+        <p>＜このツアーの総合評価＞</p>
+        <% if @tour.reviews.present? %>
+          <script>
+            $('.star-rate').raty({
+              size: 40,
+              starOff:  '<%= asset_path('star-off.png') %>',
+              starOn : '<%= asset_path('star-on.png') %>',
+              starHalf: '<%= asset_path('star-half.png') %>',
+              half: true,
+              readOnly: true,
+              score: <%= @tour.reviews.average(:rate).to_f.round(1) %>,
+            });
+          </script>
+          <%= link_to "口コミを見る", "#" %>
+        <% else %>
+         <p>評価がありません</p>
+        <% end %>
+      </div>
     <div>
   <div>
 <div>

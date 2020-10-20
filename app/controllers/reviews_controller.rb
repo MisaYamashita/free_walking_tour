@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user_id = current_user.id
     @review.tour_id = params[:tour_id]
-    if @review.save
+    if @review.save!
      flash[:success] = "レビューを投稿しました"
      redirect_to tour_path(@review.tour_id)
     else
@@ -25,9 +25,23 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
+  end
+  
+  def update
+    @review = Review.find(params[:id])
+    if @review.update!(review_params)
+      flash[:success] = "レビュー内容をを変更しました"
+      redirect_to tour_path(@review.tour.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @review = Review.find(params[:id]).delete
+    redirect_to tour_path(@review.tour.id)
+    flash[:info] = 'レビューを削除しました'
   end
   
   private

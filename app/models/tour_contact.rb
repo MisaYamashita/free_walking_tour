@@ -9,4 +9,5 @@ class TourContact < ApplicationRecord
                       
                       
   belongs_to :tour
+  has_many :reviews
 end

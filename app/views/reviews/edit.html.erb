@@ -1,2 +1,25 @@
-<h1>Reviews#edit</h1>
-<p>Find me in app/views/reviews/edit.html.erb</p>
+<div class="review-edit-wrapper">
+  <div class="container">
+    <h3>レビュー内容の変更</h3>
+    <%= form_for @review, url: tour_review_path do |f| %>
+      <div class="review-form star">
+        <dt><%= f.label :rate, "評価" %></dt>
+        <dd><%= f.hidden_field :rate, class: 'review-star' %></dd>
+      </div>
+      <script>
+      $('.star').raty({  //星表示のソース
+        size     : 40,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        starHalf: '<%= asset_path('star-half.png') %>',
+        scoreName: 'review[rate]', //reviewモデルのrateカラムに値を保存する
+        half: true,
+      });
+      </script>
+      <div class="review-form">
+        <dt><%= f.label :body, "レビュー内容" %></dt>
+        <dd><%= f.text_field :body, class: 'review-common-form form-control' %></dd>
+      </div>
+      <%= f.submit "投稿", class: "btn btn-send" %>
+    <% end %>
+    

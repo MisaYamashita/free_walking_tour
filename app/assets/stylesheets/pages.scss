@@ -1,19 +1,6 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  margin: 0px 15%;
-}
-
-.top-hero-wrapper {
-  h1, h2 {
-    letter-spacing: -2px;
-  }
-}
-
-.container {
-  width: auto;
-}
 
 .top-container {
   background-image: image_url('Kyoto.jpg');
@@ -42,6 +29,3 @@ body {
   border: 1px solid #993300;
 }
 
-.row {
-  margin-top: 40px;
-}

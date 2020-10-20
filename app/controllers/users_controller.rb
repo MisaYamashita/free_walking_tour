@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :index, :edit, :update, :destroy]
   
   def index
-    @search_users = User.all.search(params[:search])
+    @search_users = User.all
   end 
   
   def new

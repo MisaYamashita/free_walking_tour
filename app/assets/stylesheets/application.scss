@@ -2,12 +2,20 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "tempusdominus-bootstrap-4.css";
+@import "normalize";
 @import 'pages';
 @import 'nav';
 @import 'users';
 @import 'sessions';
-@import 'shows';
 @import 'inquiries';
 @import 'profiles';
 @import 'tours';
 @import 'tour_contacts';
+
+body {
+  margin: 0px 15%;
+}
+
+.container {
+  width: auto;
+}

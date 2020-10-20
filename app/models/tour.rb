@@ -7,6 +7,8 @@ class Tour < ApplicationRecord
   #validates :latitude, presence: true #経緯と緯度が取れるまではコメントアウト
   #validates :longitude, presence: true
   
+  validate :tour_day #過去の日付は指定できない。下部にメソッドあり
+  
   #ツアー一覧はツアー開催日順に表示する
   default_scope -> { order(date: :asc) }
   
@@ -18,6 +20,8 @@ class Tour < ApplicationRecord
   has_many :user_tours
   has_many :joined_users, through: :user_tours, source: 'user' #ツアーに参加するユーザーリスト
   has_many :tour_contacts
+  has_many :reviews
+  has_many :reviewed_users, through: :reviews, source: 'user' #レビューを書いたユーザーリスト
   
   def self.search(search) #self.はTour.を意味する
     if search
@@ -27,5 +31,10 @@ class Tour < ApplicationRecord
     end
   end
   
+  def tour_day
+    if date < Date.today
+      errors.add(:date, "日付は明日以降を選択してください") #エラーメッセージが出ない
+    end
+  end 
 end
  
