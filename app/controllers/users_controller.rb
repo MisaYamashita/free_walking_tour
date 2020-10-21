@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :index, :edit, :update, :destroy]
-  
-  def index
-    @search_users = User.all
-  end 
+  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
   
   def new
     @user = User.new
@@ -25,12 +21,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
     
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "ユーザーを削除しました"
-    redirect_to users_url
-  end 
-  
   private
   
    def user_params

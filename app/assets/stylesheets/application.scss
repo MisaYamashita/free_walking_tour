@@ -11,11 +11,5 @@
 @import 'profiles';
 @import 'tours';
 @import 'tour_contacts';
-
-body {
-  margin: 0px 15%;
-}
-
-.container {
-  width: auto;
-}
+@import 'reviews';
+@import 'custom';

@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :admin_user
+  before_action :current_user_admin
   
   def index
     @users = User.all
@@ -9,12 +9,9 @@ class Admin::UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:success] = "ユーザーを削除しました"
     redirect_to(admin_users_path)
-  end 
-  
-  private
-  
-  def admin_user
-    redirect_to(root_path) unless current_user.admin?
   end
   
+  
+  private
+ 
 end

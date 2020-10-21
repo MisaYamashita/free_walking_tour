@@ -17,7 +17,8 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @review = Review.where(tour_id: params[:tour_id]) #tour_idごとの一覧を表示する
+    @review = Review.where(tour_id: params[:tour_id]).paginate(page: params[:page], per_page: 5) #tour_idごとの一覧を表示する
+   
   end
 
   def show
