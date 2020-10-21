@@ -14,9 +14,9 @@
           </div>
           <p>＜評価＞</p>
           <p><%= @review.rate %>点 </p>
-          <div class="star-rate"></div>
+          <div id="star-rate"></div>
           <script>
-            $('.star-rate').raty({
+            $('#star-rate').raty({
               size: 40,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',

@@ -75,7 +75,7 @@
             <% end %>
           <% end %>
           <div class="write-review">
-            <% if !@tour.reviewed_users.include?(current_user) %>
+            <% if !@tour.reviewed_users.include?(current_user) %> <!--レビューしたユーザーの中にcurrent_userがいなかったら以下を実行 -->
               <%= link_to "このツアーのレビューを書く", new_tour_review_path(tour_id: @tour.id) %>
             <% end %>
           </div>
@@ -95,7 +95,7 @@
               score: <%= @tour.reviews.average(:rate).to_f.round(1) %>,
             });
           </script>
-          <%= link_to "口コミを見る", "#" %>
+          <%= link_to "口コミを見る", tour_reviews_path(tour_id: @tour.id) %>
         <% else %>
          <p>評価がありません</p>
         <% end %>

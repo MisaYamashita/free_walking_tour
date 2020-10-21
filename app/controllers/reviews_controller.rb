@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @review = Review.all
+    @review = Review.where(tour_id: params[:tour_id]) #tour_idごとの一覧を表示する
   end
 
   def show

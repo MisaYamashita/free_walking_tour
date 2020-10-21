@@ -8,12 +8,12 @@
         <%= form_for @review, url: tour_reviews_path do |f| %>
           <%= f.hidden_field :tour_id, value: @review.tour_id %>
           <dl>
-            <div class="review-form star">
+            <div class="review-form" id="star">
               <dt><%= f.label :rate, "評価" %></dt>
               <dd><%= f.hidden_field :rate, class: 'review-star' %></dd>
             </div>
             <script>
-            $('.star').raty({  //星表示のソース
+            $('#star').raty({  //星表示のソース
               size     : 40,
               starOff:  '<%= asset_path('star-off.png') %>',
               starOn : '<%= asset_path('star-on.png') %>',
