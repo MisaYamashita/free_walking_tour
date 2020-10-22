@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   end 
   
   namespace :admin do
-    resources :users, :profile, :pages
+    resources :users
   end 
   
 end

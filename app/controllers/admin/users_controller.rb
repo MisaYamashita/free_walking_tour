@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
-  before_action :current_user_admin
+  before_action :admin_user
+  
+  helper_method :admin_user
   
   def index
     @users = User.all
@@ -12,6 +14,13 @@ class Admin::UsersController < ApplicationController
   end
   
   
+  
+
   private
- 
+  
+  #Adminユーザーかどうか
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
+  end 
+  
 end
