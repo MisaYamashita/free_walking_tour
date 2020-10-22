@@ -1,5 +1,5 @@
 <div class="user-top-wapper">
-  <div class="user-top-container">
+  <div class="user-top-container container">
     <div class="top-title">
       <h1>FREE WALKING TOUR</h1>
       <h2>IN JAPAN</h2>
@@ -21,7 +21,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-offset-3 col-md-4">
+    <div class="col-md-5">
       <div class="tour-search-container">
         <h5>＜ツアー検索！＞</h5>
         <h6>都道府県、または都市名を入力してください</h6> <!--文字列部分一致検索 -->
@@ -33,7 +33,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-offset-8">
+    <div class="col-md-4">
       <div class="tour-make-container">
         <h5>＜ツアーを開催！＞</h5>
         <%= link_to new_tour_path do %>
@@ -41,7 +41,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-offset-3 col-md-8">
+    <div class="col-md-8">
       <div class="your-plan-container">
         <h5>＜<%= current_user.name %>さんの予定表＞</h5>
         <div class="joinning">

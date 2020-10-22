@@ -8,7 +8,7 @@ class TourContactsController < ApplicationController
     @tour_contact = TourContact.new(tour_contact_params)
     if @tour_contact.save
       TourContactMailer.send_mail(@tour_contact).deliver   #app/mailer/tour_contact_mailerでsend_mailを定義している
-      flash.now[:success] = "問い合わせ内容を送信しました" #表示されない。。
+      flash.keep[:success] = "問い合わせ内容を送信しました"
       redirect_to tour_contacts_new_path
     else
       render 'new'
