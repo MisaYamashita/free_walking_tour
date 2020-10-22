@@ -10,8 +10,7 @@ class InquiriesController < ApplicationController
       flash.now[:success] = "問い合わせ内容を送信しました" #表示されない。。
       redirect_to inquiries_path
     else
-      flash.now[:danger] = "問い合わせ内容を送信できませんでした"
-      redirect_to inquiries_path
+      render 'new'
     end 
   end
   

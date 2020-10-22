@@ -4,7 +4,7 @@
       <div class="col-md-offset-4 col-md-6">
         <h1>Sign Up</h1>
         <%= form_for @user, url: signup_path do |f| %>
-          <%= render 'shared/error_messages' %>
+          <%= render 'layouts/error_messages', model: f.object  %>
           <div class="form-group">
             <%= f.label :name, "氏名" %>
             <%= f.text_field :name, class: 'input-form form-control' %>

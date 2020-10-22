@@ -3,9 +3,10 @@
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
         <h2>お問い合わせフォーム</h2>
-        <p class="tour-contact-tour-title">ツアー名</p>
-        <%= @tour_contact.tour.title %>
         <%= form_for @tour_contact, url: tour_contacts_create_path do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <p class="tour-contact-tour-title">ツアー名</p>
+            <%= @tour_contact.tour.title %>
           <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
           <dl>
             <div class="tour-contact-form">

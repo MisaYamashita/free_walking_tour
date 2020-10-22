@@ -9,10 +9,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "登録が完了しました"
       redirect_to @user #ログイン後のページと同じ
     else
-      #flash.now[:danger] = "登録に失敗しました"   パーシャルで埋め込みでメッセージ対応
       render :new
     end 
   end

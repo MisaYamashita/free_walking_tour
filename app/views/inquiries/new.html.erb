@@ -4,6 +4,7 @@
       <h2>お問い合わせフォーム</h2>
       
       <%= form_for @inquiry do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
         <dl>
           <div class="inquiry-form">
             <dt><%= f.label :name, "お名前" %></dt>

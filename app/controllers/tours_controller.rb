@@ -13,10 +13,8 @@ class ToursController < ApplicationController
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
     if @tour.save
-      flash[:success] = "ツアーを作成しました"
       redirect_to tour_path(@tour.id)
     else
-      flash.now[:danger] = "ツアーの作成に失敗しました"
       render :new
     end
   end

@@ -11,8 +11,7 @@ class TourContactsController < ApplicationController
       flash.now[:success] = "問い合わせ内容を送信しました" #表示されない。。
       redirect_to tour_contacts_new_path
     else
-      flash.now[:danger] = "問い合わせ内容を送信できませんでした"
-      redirect_to tour_contacts_new_path
+      render 'new'
     end 
   end
   
