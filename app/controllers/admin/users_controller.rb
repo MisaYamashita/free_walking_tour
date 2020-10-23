@@ -4,7 +4,8 @@ class Admin::UsersController < ApplicationController
   helper_method :admin_user
   
   def index
-    @users = User.all
+    @search_users = User.all.search(params[:search])
+    #@search_users = User.paginate(page: params[:page], per_page: 15)
   end
   
   def destroy
@@ -13,14 +14,12 @@ class Admin::UsersController < ApplicationController
     redirect_to(admin_users_path)
   end
   
-  
-  
 
   private
   
   #Adminユーザーかどうか
   def admin_user
     redirect_to(root_url) unless current_user.admin?
-  end 
+  end
   
 end

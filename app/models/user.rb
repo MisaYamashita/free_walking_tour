@@ -19,4 +19,11 @@ class User < ApplicationRecord
   
   accepts_nested_attributes_for :user_tours, allow_destroy: true  #親モデルの更新の時、子モデルもまとめて更新できるようにする
   
+  def self.search(search) #アドミンページのユーザー検索
+    if search  
+      where(['name LIKE ?', "%#{search}%"])   
+    else  
+      all  
+    end  
+  end
 end
