@@ -1,8 +1,6 @@
 class ToursController < ApplicationController
   def index
-    #@search_tours = Tour.where("date > ?", Date.today)
-    @search_tours = Tour.all.search(params[:search])
-    @search_tours = Tour.paginate(page: params[:page], per_page: 10)
+    @search_tours = Tour.where("date > ?", Date.today).paginate(page: params[:page], per_page: 10)
   end 
   
   def new

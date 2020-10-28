@@ -46,7 +46,7 @@
         <h5>＜<%= current_user.name %>さんの予定表＞</h5>
         <div class="joinning">
           <h6>◆参加予定のツアー</h6>
-          <% @user.joined_tours.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
+          <% @user.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
             <div class="tour-box-list">
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>
@@ -54,7 +54,7 @@
         </div>  
         <div class="planning">
           <h6>◆開催予定のツアー</h6>
-          <% @user.tours.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
+          <% @user_tour.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
             <div class="tour-box-list">
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>

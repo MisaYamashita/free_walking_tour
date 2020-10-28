@@ -22,8 +22,9 @@
         <div class="tour-address-show">
           <h5>＜集合場所＞</h5>
           <%= @tour.address %>
-          <script defer src="https://maps.googleapis.com/maps/api/js?key=ENV['API-key-google-map']&callback=initMap"></script>
+          <script defer src="https://maps.googleapis.com/maps/api/js?key=ENV['MAP_API']&callback=initMap"></script>
           <script type="text/javascript">
+          
             function initMap() {
             //latitude,longitudeから位置を特定
               var test ={lat: <%= @tour.latitude %>, lng: <%= @tour.longitude %>};

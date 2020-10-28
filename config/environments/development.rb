@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.web_console.whitelisted_ips = '110.132.248.32' #コンソールでCannot render consoleが表示されたため追記
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

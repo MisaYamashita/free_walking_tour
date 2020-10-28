@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).joined_tours.where("date > ?", Date.today)
+    @user_tour = User.find(params[:id]).tours.where("date > ?", Date.today)
   end
     
   private
