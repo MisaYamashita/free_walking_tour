@@ -4,6 +4,7 @@
       <h3>プロフィールがありません</h3>
       <h3>下記のフォームから登録してください</h3>
       <div class="left-main-container">
+        <%= render 'layouts/error_messages', model: f.object %>
         <div class="profile-image">
           <%= image_tag 'rails.png', class: 'image-size' %>
           <p>＜プロフィール画像＞</p>

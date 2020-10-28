@@ -28,7 +28,6 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find_by(user_id: params[:id])
     if @profile.update!(profile_params)
-      flash[:success] = "プロフィールを更新しました"
       redirect_to profiles_show_path(current_user.id)
     else
       render :edit

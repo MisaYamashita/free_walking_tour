@@ -9,7 +9,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   #elsif Rails.env.test?
     #storage :file
   #else
-    storage :fog
+  storage :fog
   #end
   
   # Override the directory where uploaded files will be stored.
@@ -43,6 +43,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
   def extension_whitelist
     %w(jpg jpeg gif png)
+  end
+  
+  def size_range
+    0..3.megabytes
   end
 
   # Override the filename of the uploaded files:
