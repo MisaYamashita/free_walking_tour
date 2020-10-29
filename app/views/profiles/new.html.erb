@@ -1,18 +1,18 @@
 <div class="profile-wrapper">
   <div class="profile-container container">
     <div class="row">
-      <h3>プロフィールがありません</h3>
-      <h3>下記のフォームから登録してください</h3>
+      <h4>プロフィールがありません</h4>
+      <h5>下記のフォームから登録してください</h5>
       <div class="left-main-container">
-        <%= render 'layouts/error_messages', model: f.object %>
-        <div class="profile-image">
-          <%= image_tag 'rails.png', class: 'image-size' %>
-          <p>＜プロフィール画像＞</p>
-          <%= form_for @profile, url: profiles_new_path do |f| %>
-            <%= f.label :image, "画像：" %>
-            <%= f.file_field :image %>
-          <% end %>
-        </div>
+        <%= form_for @profile, url: profiles_new_path do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
+          <div class="profile-image">
+            <%= image_tag 'person.png', class: 'image-size' %>
+            <p>＜プロフィール画像＞</p>
+              <%= f.label :image, "画像：" %>
+              <%= f.file_field :image %>
+            <% end %>
+          </div>
       </div>
       <div class="right-main-container">
         <div class="profile-name">

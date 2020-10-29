@@ -8,6 +8,9 @@ class Profile < ApplicationRecord
   
   mount_uploader :image, ImageUploader
   
+  def size_range
+    0..3.megabytes
+  end
 
   private
   

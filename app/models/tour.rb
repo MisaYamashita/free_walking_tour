@@ -4,8 +4,8 @@ class Tour < ApplicationRecord
   validates :date, presence: true
   validates :detail, presence: true
   validates :address, presence: true
-  #validates :latitude, presence: true #経緯と緯度が取れるまではコメントアウト
-  #validates :longitude, presence: true
+  validates :latitude, presence: true #経緯と緯度が取れるまではコメントアウト
+  validates :longitude, presence: true
   
   #validate :tour_day #過去の日付は指定できない。下部にメソッドあり
   

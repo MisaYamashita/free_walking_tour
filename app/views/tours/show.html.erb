@@ -22,37 +22,39 @@
         <div class="tour-address-show">
           <h5>＜集合場所＞</h5>
           <%= @tour.address %>
-          <script defer src="https://maps.googleapis.com/maps/api/js?key=ENV['MAP_API']&callback=initMap"></script>
-          <script type="text/javascript">
-          
-            function initMap() {
-            //latitude,longitudeから位置を特定
-              var test ={lat: <%= @tour.latitude %>, lng: <%= @tour.longitude %>};
-              var map = new google.maps.Map(document.getElementById('map'), {
-                center: test
-                zoom: 15,
-              });
-              
-              var transitLayer = new google.maps.TransitLayer(); //ここから40行まで必要か謎
-              transitLayer.setMap(map);
-
-              var contentString = '集合場所：<%= @tour.address %>';
-              var infowindow = new google.maps.InfoWindow({
-                content: contentString
-              });
-
-               //Map上の指定した位置にピンを挿して表示する
-              var marker = new google.maps.Marker({
-                position: test,
-                map: map
-                title: contentString
-               });
-
-              marker.addListener('click', function() { //ここから下必要か謎
-                infowindow.open(map, marker);
-              });
+          <div id="map"></div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY'] %>"></script>
+              <script>
+            function map_canvas() {
+                var data = new Array();
+                data.push({
+                    lat: <%= @tour.latitude %>, //緯度
+                    lng: <%= @tour.longitude %>, //経度
+                    content: '集合場所' //情報ウィンドウ
+                });
+                var latlng = new google.maps.LatLng(data[0].lat, data[0].lng);
+                var opts = {
+                    zoom: 15,
+                    center: latlng,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("map"), opts);
+                 var markers = new Array();
+                for (i = 0; i < data.length; i++) {
+                    markers[i] = new google.maps.Marker({
+                        position: new google.maps.LatLng(data[i].lat, data[i].lng),
+                        map: map
+                    });
+                    markerInfo(markers[i], data[i].content);
+                }
             }
-          </script>
+            function markerInfo(marker, name) {
+                new google.maps.InfoWindow({
+                    content: name
+                }).open(marker.getMap(), marker);
+            }
+            google.maps.event.addDomListener(window, 'load', map_canvas);
+              </script>
         </div>
         <% if logged_in? && @tour.user_id == current_user.id %>
           <div class="tour-btn">

@@ -10,7 +10,9 @@
     <div class="col-md-3">
       <div class="prfile-wapper">
         <p><%= current_user.name %>さんのプロフィール</p>
-        <%= image_tag 'rails.png', class: "side-image-size" %><br>
+        <span class="side-image-size">
+          <%= image_tag current_user.profile.image.to_s %><br>
+        </span>
         <p>＜お名前＞</p><br>
         <%= current_user.name %><br>
         <p>＜プロフィール文＞</p><br>
