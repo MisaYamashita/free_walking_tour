@@ -83,25 +83,25 @@
             <% end %>
           </div>
         <% end %>
-      </div>
-      <div class="star-rate">
-        <p>＜このツアーの総合評価＞</p>
-        <% if @tour.reviews.present? %>
-          <script>
-            $('.star-rate').raty({
-              size: 40,
-              starOff:  '<%= asset_path('star-off.png') %>',
-              starOn : '<%= asset_path('star-on.png') %>',
-              starHalf: '<%= asset_path('star-half.png') %>',
-              half: true,
-              readOnly: true,
-              score: <%= @tour.reviews.average(:rate).to_f.round(1) %>,
-            });
-          </script>
-          <%= link_to "口コミを見る", tour_reviews_path(tour_id: @tour.id) %>
-        <% else %>
-         <p>評価がありません</p>
-        <% end %>
+        <div class="star-rate">
+          <p>＜このツアーの総合評価＞</p>
+          <% if @tour.reviews.present? %>
+            <script>
+              $('.star-rate').raty({
+                size: 40,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= @tour.reviews.average(:rate).to_f.round(1) %>,
+              });
+            </script>
+            <%= link_to "口コミを見る", tour_reviews_path(tour_id: @tour.id) %>
+          <% else %>
+           <p>評価がありません</p>
+          <% end %>
+        </div>
       </div>
     <div>
   <div>
