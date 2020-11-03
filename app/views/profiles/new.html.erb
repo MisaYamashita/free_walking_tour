@@ -1,35 +1,27 @@
 <div class="profile-wrapper">
   <div class="profile-container container">
     <div class="row">
-      <h4>プロフィールがありません</h4>
-      <h5>下記のフォームから登録してください</h5>
-      <div class="left-main-container">
+      <div class="col-md-offset-4 col-md-4">
+        <h4>プロフィールがありません</h4>
+        <h5>下記のフォームから登録してください</h5>
         <%= form_for @profile, url: profiles_new_path do |f| %>
-          <%= render 'layouts/error_messages', model: f.object %>
+        <%= render 'layouts/error_messages', model: f.object %> <!-- バリデーションエラーがある場合は表示 -->
           <div class="profile-image">
             <%= image_tag 'person.png', class: 'image-size' %>
             <p>＜プロフィール画像＞</p>
-              <%= f.label :image, "画像：" %>
-              <%= f.file_field :image %>
-            <% end %>
+            <%= f.label :image, "画像：" %>
+            <%= f.file_field :image %>
           </div>
-      </div>
-      <div class="right-main-container">
-        <div class="profile-name">
-          <p class="name-title">＜名前＞</p>
-          <%= current_user.name %>
-        </div>
-        <div class="empty-profile">
-          <p>＜プロフィール文＞</p>
-          <%= form_for @profile, url: profiles_new_path do |f| %>
-          <div>
-        　  <%= f.text_field :body, class: 'body-form' %>
-        　</div>
-        　<div>
-        　  <%= f.submit "登録", class: "btn profile-btn" %>
-        　</div>
-          <% end %>
-        </div>
+          <div class="profile-name">
+            <p class="name-title">＜名前＞</p>
+            <%= current_user.name %>
+          </div>
+          <div class="empty-profile">
+            <p>＜プロフィール文＞</p>
+          　  <%= f.text_area :body, rows: 5, class: 'form-control' %>
+          　  <%= f.submit "登録", class: "btn profile-btn" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

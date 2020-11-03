@@ -1,24 +1,26 @@
 <div class="profile-edit-wrapper">
   <div class="container">
-    <div class="col-md-offset-3 col-md-6">
-      <h3><%= @profile.user.name %>さんのプロフィール(編集)</h3>
-      <%= form_for @profile, url: profiles_edit_path do |f| %>
-      <%= render 'layouts/error_messages', model: f.object %>
-        <div class="s3_edit">
-          <%= image_tag @profile.image.to_s, class: "image-size" %>
-          <div>
-            <%= f.label :image, "画像：" %>
-            <%= f.file_field :image %>
+    <div class="row">
+      <h3 class="text-center"><%= @profile.user.name %>さんのプロフィール(編集)</h3>
+      <div class="col-md-offset-4 col-md-4">
+        <%= form_for @profile, url: profiles_edit_path do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
+          <div class="s3_edit">
+            <%= image_tag @profile.image.to_s, class: "image-size" %>
+            <div>
+              <%= f.label :image, "画像：" %>
+              <%= f.file_field :image %>
+            </div>
           </div>
-        </div>
-        <dl>
-          <div class="profile-form">
-            <dt><h6>＜プロフィール文＞</h6></dt>
-            <dd><%= f.text_field :body, class: 'profile-body-form' %></dd>
-            <dd><%= f.submit "更新", class: "btn btn-updated" %></dd>
-          </div>
-        </dl>
-      <% end %>
+          <dl>
+            <div class="profile-form">
+              <dt><h6>＜プロフィール文＞</h6></dt>
+              <dd><%= f.text_area :body, rows: 5, class: 'profile-body-form form-control' %></dd>
+              <dd><%= f.submit "更新", class: "btn btn-updated" %></dd>
+            </div>
+          </dl>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

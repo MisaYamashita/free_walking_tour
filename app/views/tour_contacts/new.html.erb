@@ -8,24 +8,22 @@
           <p class="tour-contact-tour-title">ツアー名</p>
             <%= @tour_contact.tour.title %>
           <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
-          <dl>
             <div class="tour-contact-form">
-              <dt><%= f.label :name, "お名前" %></dt>
-              <dd><%= f.text_field :name, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :name, "お名前" %>
+              <%= f.text_field :name, class: 'form-control' %>
             </div>
             <div class="tour-contact-form">
-              <dt><%= f.label :email, "連絡先メールアドレス" %></dt>
-              <dd><%= f.text_field :email, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :email, "連絡先メールアドレス" %>
+              <%= f.text_field :email, class: 'form-control' %>
             </div>
             <div class="tour-contact-form">
-              <dt><%= f.label :title, "件名" %></dt>
-              <dd><%= f.text_field :title, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :title, "件名" %>
+              <%= f.text_field :title, class: 'form-control' %>
             </div>
             <div class="tour-contact">
-              <dt><%= f.label :message, "お問い合わせ内容" %></dt>
-              <dd><%= f.text_field :message, class: 'inquery-message-form form-control' %></dd>
+              <%= f.label :message, "お問い合わせ内容" %>
+              <%= f.text_area :message, rows: 7, class: 'form-control' %>
             </div>
-          </dl>
           <%= f.submit "送信", class: "btn btn-send" %>
         <% end %>
       </div>

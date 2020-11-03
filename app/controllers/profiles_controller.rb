@@ -10,7 +10,7 @@ class ProfilesController < ApplicationController
     @profile.user_id = current_user.id
     if @profile.save
       flash[:success] = "プロフィールの登録が完了しました"
-      redirect_to profiles_show_path(current_user.id) #もし@profileのようにインスタンス変数指定の時はprofileのshowを見に行く
+      redirect_to profiles_show_path(current_user.id) 
     else
       flash.now[:danger] = "プロフィールの登録に失敗しました"
       render :new
@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
   private
   
     def profile_params
-      params.require(:profile).permit(:user_id, :image, :body, user_attributes: [:id, :name, :email, :password])
+      params.require(:profile).permit(:user_id, :image, :body)
     end 
    
     def correct_user

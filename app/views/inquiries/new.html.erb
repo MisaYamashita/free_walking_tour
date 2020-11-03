@@ -1,28 +1,26 @@
 <div class="inquiry-wrapper">
   <div class="inquiry-container container">
     <div class="row">
-      <h3>お問い合わせフォーム</h3>
       <div class="col-md-offset-4 col-md-4">
+        <h3>お問い合わせフォーム</h3>
         <%= form_for @inquiry do |f| %>
           <%= render 'layouts/error_messages', model: f.object %>
-          <dl>
             <div class="inquiry-form">
-              <dt><%= f.label :name, "お名前" %></dt>
-              <dd><%= f.text_field :name, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :name, "お名前" %>
+              <%= f.text_field :name, class: 'form-control' %>
             </div>
             <div class="inquiry-form">
-              <dt><%= f.label :email, "連絡先メールアドレス" %></dt>
-              <dd><%= f.text_field :email, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :email, "連絡先メールアドレス" %>
+              <%= f.text_field :email, class: 'form-control' %>
             </div>
             <div class="inquiry-form">
-              <dt><%= f.label :title, "件名" %></dt>
-              <dd><%= f.text_field :title, class: 'inquery-common-form form-control' %></dd>
+              <%= f.label :title, "件名" %>
+              <%= f.text_field :title, class: 'form-control' %>
             </div>
             <div class="inquiry-form">
-              <dt><%= f.label :message, "お問い合わせ内容" %></dt>
-              <dd><%= f.text_field :message, class: 'inquery-message-form form-control' %></dd>
+              <%= f.label :message, "お問い合わせ内容" %>
+              <%= f.text_area :message, rows: 7, class: 'inquery-message-form form-control' %>
             </div>
-          </dl>
           <%= f.submit "送信", class: "btn btn-send" %>
         <% end %>
       </div>

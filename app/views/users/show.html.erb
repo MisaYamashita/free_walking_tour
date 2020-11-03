@@ -11,11 +11,8 @@
       <div class="prfile-wapper">
         <p><%= current_user.name %>さんのプロフィール</p>
         <span class="side-image-size">
-          <% if current_user.profile.nil? %>
-            <%= image_tag 'person.png', class: "side-image-size" %>
-          <% else %>
-            <%= image_tag current_user.profile.image.to_s, class: "side-image-size" %><br>
-          <% end %>
+          <%= image_tag current_user.profile.image.to_s, class: "side-image-size" if !current_user.profile.nil? %>
+          <%= image_tag "person.png", class: "side-image-size" if current_user.profile.nil? %><br>
         </span>
         <p>＜お名前＞</p><br>
         <%= current_user.name %><br>
@@ -53,7 +50,7 @@
         <div class="joinning">
           <h6>◆参加予定のツアー</h6>
           <% @user.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
-            <div class="tour-box-list">
+            <div class="tour-box-list", data-turbolinks="false"> <!--リンク先でturbolinksを無効にする(google map表示のため) -->
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>
           <% end %>
@@ -61,7 +58,7 @@
         <div class="planning">
           <h6>◆開催予定のツアー</h6>
           <% @user_tour.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
-            <div class="tour-box-list">
+            <div class="tour-box-list", data-turbolinks="false">
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>
           <% end %>
