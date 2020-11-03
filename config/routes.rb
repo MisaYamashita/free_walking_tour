@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
+  #SNS認証ログインに関してのアクション
+  get 'auth/:provider/callback', to: 'sessions#create'
+  post 'auth/:provider/callback', to: 'sessions#create'
+  
   #プロフィール画面に関してのアクション
   get 'users/:id/profiles', to: 'profiles#new', as: 'profiles_new'
   post 'users/:id/profiles', to: 'profiles#create'

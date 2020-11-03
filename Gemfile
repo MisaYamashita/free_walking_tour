@@ -48,6 +48,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'geocoder' #google map用 住所から緯度経度を算出する
 gem 'gon' #コントローラーで定義したインスタンス変数をビューのJavaScript内で使用出来る様にする
 
+gem 'omniauth' #SNS認証用
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

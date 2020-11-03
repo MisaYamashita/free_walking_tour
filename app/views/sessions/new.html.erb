@@ -15,6 +15,9 @@
           <div>
             <%= f.submit "Log in", class: "btn btn-primary" %>
           </div>
+          <div class="twitter-login">
+            <%= link_to "Twitterアカウントでログイン", "/auth/twitter" %>
+          </div>
         <% end %>
         <p>新規登録がまだの方→ <%= link_to "Sign Up!", signup_path %></p>
       </div>

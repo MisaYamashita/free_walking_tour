@@ -5,11 +5,7 @@
       <%= form_for @profile, url: profiles_edit_path do |f| %>
       <%= render 'layouts/error_messages', model: f.object %>
         <div class="s3_edit">
-          <% if @profile.image.blank? %>
-            <%= image_tag 'rails.png', class: "image-size" %>
-          <% else %>
-            <%= image_tag @profile.image.to_s, class: "image-size" %>
-          <% end %>
+          <%= image_tag @profile.image.to_s, class: "image-size" %>
           <div>
             <%= f.label :image, "画像：" %>
             <%= f.file_field :image %>

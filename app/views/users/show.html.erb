@@ -11,7 +11,11 @@
       <div class="prfile-wapper">
         <p><%= current_user.name %>さんのプロフィール</p>
         <span class="side-image-size">
-          <%= image_tag current_user.profile.image.to_s %><br>
+          <% if current_user.profile.nil? %>
+            <%= image_tag 'person.png', class: "side-image-size" %>
+          <% else %>
+            <%= image_tag current_user.profile.image.to_s, class: "side-image-size" %><br>
+          <% end %>
         </span>
         <p>＜お名前＞</p><br>
         <%= current_user.name %><br>

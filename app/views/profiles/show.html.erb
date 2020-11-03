@@ -4,11 +4,7 @@
       <div class="col-md-offset-3 col-md-6">
       <h3><%= @profile.user.name %>さんのプロフィール</h3>
         <div class="profile-image">
-          <% if !@profile.image.nil? %>
-            <%= image_tag @profile.image.to_s, class: "image-size" %>
-          <% else %>
-            <%= image_tag 'rails.png', class: "image-size" %>
-          <% end %>
+          <%= image_tag @profile.image.to_s, class: "image-size" %>
         </div>
         <div class="profile-body">
           <h6>＜プロフィール文＞</h6>
