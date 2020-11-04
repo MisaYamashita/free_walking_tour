@@ -10,6 +10,9 @@ class Tour < ApplicationRecord
   #ツアー一覧はツアー開催日順に表示する
   default_scope -> { order(date: :asc) }
   
+  #ツアー画像用
+  mount_uploaders :images, ImageUploader
+  
   #gmapについて
   geocoded_by :address #addressカラムを基準に緯度経度を算出する
   after_validation :geocode, if: :address_changed? #住所変更時に緯度経度も変更する

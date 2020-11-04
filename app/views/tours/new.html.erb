@@ -21,6 +21,11 @@
             <%= f.label :address, "ツアーの集合場所" %>
             <%= f.text_field :address, class: 'tour-input-form form-control' %>
           </div>
+          <div class="tour-images">
+            <%= f.label :images, "ツアーに関する写真" %>
+            <p>ツアーで回る場所の写真や、過去のツアーの写真をアップロードできます(8枚まで)</p>
+            <%= f.file_field :images, multiple: true %>
+          </div>
           <div>
             <%= f.submit "登録する" %>
           </div>
