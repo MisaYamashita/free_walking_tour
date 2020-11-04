@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   end
   
   def create
-#    auth = request.env['omniauth.auth']  #SNS認証用
-#    if auth.present?
-#      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
-#      session[:user_id] = user.id
-#      flash[:success] = "ユーザー認証が完了しました。"
-#      redirect_to user_path(id: :user_id)
-    if
+    auth = request.env['omniauth.auth']  #SNS認証用
+    if auth.present?
+      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+      session[:user_id] = user.id
+      flash[:success] = "ユーザー認証が完了しました。"
+      redirect_to user_path(id: :user_id)
+    elsif
       user = User.find_by(email: params[:session][:email].downcase)
       if user && user.authenticate(params[:session][:password])
         log_in user

@@ -5,7 +5,9 @@
         <h3>検索ツアー一覧</h3>
         <div class="tour-index-list">
           <% @search_tours.each do |tour| %>
-            <%= link_to tour.title, tour_path(id: tour.id) %><P>開催日時：<%= l tour.date %></P> <!--user_tour_path(user_id, @tour.id)?? -->
+            <div class="tour-box-list", data-turbolinks="false">
+              <%= link_to tour.title, tour_path(id: tour.id) %><P>開催日時：<%= l tour.date %></P>
+            </div>
           <% end %>
           <%= will_paginate @search_tours, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %><br>
         </div>
