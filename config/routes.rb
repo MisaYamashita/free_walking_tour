@@ -47,6 +47,12 @@ Rails.application.routes.draw do
   get '/tours/:id/tour_contact', to: 'tour_contacts#create'
   post '/tours/:id/tour_contact', to: 'tour_contacts#create', as: 'tour_contacts_create'
   
+  #過去に参加したツアー一覧
+  get '/users/:id/joined_past', to: 'users#joined_past', as: 'joined_past'
+  
+  #過去に開催したツアー一覧
+  get '/users/:id/planned_past', to: 'users#planned_past', as: 'planned_past'
+  
   resources :users
   
   resources :tours do

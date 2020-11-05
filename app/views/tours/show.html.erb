@@ -98,11 +98,11 @@
           </div>
           <% if @tour.joined_users.include?(current_user) %> <!--ツアーの参加者リストにcurrent_userがいたら以下を実行 -->
             <%= link_to user_tours_destroy_path(tour_id: @tour.id) do %>
-              <button class="btn plan-btn">このツアーの参加をキャンセルする</button>
+              <button class="btn plan-btn", data-turbolinks="false">このツアーの参加をキャンセルする</button>
             <% end %>
           <% else %>
             <%= link_to user_tours_create_path(tour_id: @tour.id) do %>
-              <button class="btn plan-btn">このツアーに参加する</button>
+              <button class="btn plan-btn", data-turbolinks="false">このツアーに参加する</button>
             <% end %>
           <% end %>
           <div class="write-review">

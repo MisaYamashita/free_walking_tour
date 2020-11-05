@@ -49,19 +49,29 @@
         <h5>＜<%= current_user.name %>さんの予定表＞</h5>
         <div class="joinning">
           <h6>◆参加予定のツアー</h6>
-          <% @user.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
-            <div class="tour-box-list", data-turbolinks="false"> <!--リンク先でturbolinksを無効にする(google map表示のため) -->
+          <% @user_join.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
+            <div class="tour-box-list", data-turbolinks="false",> <!--リンク先でturbolinksを無効にする(google map表示のため) -->
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>
           <% end %>
         </div>  
         <div class="planning">
           <h6>◆開催予定のツアー</h6>
-          <% @user_tour.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
+          <% @user_plan.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
             <div class="tour-box-list", data-turbolinks="false">
               <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
             </div>
           <% end %>
+        </div>
+      </div>
+      <div class="your-plan-container">
+        <h5>＜<%= current_user.name %>さんの過去のアクティビティ＞</h5>
+        <h6>レビューを書きましょう！</h6>
+        <div class="joined_tour">
+          <P>過去に参加したツアーの一覧は<%= link_to "こちら", joined_past_path(id: current_user.id) %></P>
+          
+          <div class="planned_tour">
+          <P>過去に開催したツアーの一覧は<%= link_to "こちら", planned_past_path(id: current_user.id) %></P>
         </div>
       </div>
     </div>

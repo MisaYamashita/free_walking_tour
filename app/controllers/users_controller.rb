@@ -16,10 +16,18 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id]).joined_tours.where("date > ?", Date.today)
-    @user_tour = User.find(params[:id]).tours.where("date > ?", Date.today)
+    @user_join = User.find(params[:id]).joined_tours.where("date > ?", Date.today) #参加予定のツアー
+    @user_plan = User.find(params[:id]).tours.where("date > ?", Date.today) #開催予定のツアー
   end
-    
+  
+  def joined_past #参加したツアー
+    @user_joined_past = User.find(params[:id]).joined_tours.where("date < ?", Date.today).paginate(page: params[:page], per_page: 10) 
+  end 
+  
+  def planned_past #開催したツアー
+    @user_planned_past = User.find(params[:id]).tours.where("date < ?", Date.today).paginate(page: params[:page], per_page: 10) 
+  end
+
   private
   
    def user_params
