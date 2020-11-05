@@ -61,9 +61,28 @@
         </div>
         <div class="tour-images-show">
           <h5>＜ツアーに関する写真＞</h5>
-          <% @tour.images.each do |tour| %>
-             <%= image_tag (tour.url), class: "tour-images-thumbnail" %>
-          <% end %>
+          <div id="carouselControls" class="carousel slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <%= image_tag @tour.images[0].to_s, class: "carousel_image" %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag @tour.images[1].to_s, class: "carousel_image" %>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag @tour.images[2].to_s, class: "carousel_image" %>
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+
         </div>
         <% if logged_in? && @tour.user_id == current_user.id %>
           <div class="tour-btn">
