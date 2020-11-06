@@ -37,8 +37,8 @@ gem 'bootstrap-will_paginate'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap-sass'
-gem 'bootstrap', '~> 4.1.1' #date型カレンダー表示用
-gem "bootstrap4-datetime-picker-rails"  #date型カレンダー表示用
+gem 'bootstrap', '~> 4.1.1' 
+gem "bootstrap4-datetime-picker-rails"  
 gem 'momentjs-rails'  #date型カレンダー表示用
 gem "font-awesome-rails"
 

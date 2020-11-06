@@ -12,6 +12,7 @@ module FreeWalkingTour
     config.load_defaults 5.2
     #タイムゾーンを東京に設定
     config.time_zone = 'Asia/Tokyo'
+    config.active_record.default_timezone = :local
     #デフォルトのローカルを日本に設定
     config.i18n.default_locale = :ja
     
