@@ -1,11 +1,9 @@
 class Tour < ApplicationRecord
   validates :user_id, presence: true
-  validates :title, presence: true
-  validates :date, presence: true
-  validates :detail, presence: true
+  validates :title, presence: true, length: { maximum: 30 }
+  validates :detail, presence: true, length: { maximum: 1500 }
   validates :address, presence: true
-  
-  validate :tour_day #過去の日付は指定できない。下部にメソッドあり
+  validate :tour_day #空白と過去の日付は指定できない。下部にメソッドあり
   
   #ツアー一覧はツアー開催日順に表示する
   default_scope -> { order(date: :asc) }
@@ -34,8 +32,8 @@ class Tour < ApplicationRecord
   
   def tour_day
     validate_date = Date.tomorrow
-    if date < validate_date.beginning_of_day
-      errors.add(:date, "日付は明日以降を選択してください") #エラーメッセージが出ない
+    if date == nil || date < validate_date.beginning_of_day
+      errors.add(:date, "は明日以降を選択してください")
     end
   end 
 end

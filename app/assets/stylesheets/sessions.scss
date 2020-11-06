@@ -1,16 +1,13 @@
 .login-container {
   background-image: image_url('Atera.jpg');
-  height: 550px;
+  height: 600px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: auto;
+  width: 100%;
  }
  
-.form-control {
-  width: 350px;
-}
- 
+
 .title-log-in {
   color: white;
   text-shadow: 0 0 3px #000,0 0 3px #000,

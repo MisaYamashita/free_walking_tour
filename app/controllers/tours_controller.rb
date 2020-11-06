@@ -27,7 +27,7 @@ class ToursController < ApplicationController
 
   def update
     @tour = Tour.find(params[:id])
-    if @tour.update!(tour_params)
+    if @tour.update(tour_params)
       flash[:success] = "ツアー内容をを変更しました"
       redirect_to tour_path(@tour.id)
     else

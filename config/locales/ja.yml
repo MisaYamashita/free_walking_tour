@@ -1,6 +1,33 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+      profile:
+        iamge: 画像
+        body: プロフィール文
+      tour:
+        title: ツアー名
+        date: 日付
+        images: 画像
+        detail: ツアー詳細
+        address: 集合場所
+      review:
+        rate: 星評価
+        body: レビュー
+      inquiry:
+        title: 件名
+        message: 問い合わせ内容
+        email: メールアドレス
+        name: 名前
+      tour_contact:
+        name: 名前
+        email: メールアドレス
+        title: 件名
+        message: 問い合わせ内容
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

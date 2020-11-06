@@ -1,8 +1,8 @@
 <div class="signup-wrapper">
   <div class="signup-container container">
     <div class="row">
-      <div class="col-md-offset-4 col-md-6">
-        <h3>Sign Up</h3>
+      <h3 class="text-center">Sign Up</h3>
+      <div class="col-md-offset-4 col-md-4">
         <%= form_for @user, url: signup_path do |f| %>
           <%= render 'layouts/error_messages', model: f.object  %>
           <div class="form-group">
