@@ -16,6 +16,7 @@ body {
   
   #logo {
   float: left;
+  padding-left: 15px;
   margin-top: 10px;
   font-size:20px;
   color: #fff;
@@ -27,15 +28,6 @@ body {
 
 
 //ログイン前のHomeページ
-.top-container {
-  background-image: image_url('Kyoto.jpg');
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: auto;
-}
-
 .top-title {
   padding-top: 60px;
   color: white;
@@ -55,10 +47,15 @@ body {
 
 
 
+.container {
+  height: 600px;
+  padding-top: 40px;
+}
+
+
 //ログイン後のshowページ
 .user-top-container {
   background-image: image_url('Kyoto.jpg');
-  height: 600px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -142,8 +139,7 @@ body {
 
 //プロフィールページ
 .image-size {
-  width: 300px;
-  height: 300px;
+  width: 120%;
 }
 
 
@@ -178,7 +174,7 @@ body {
 
 //ヘッダー
 footer {
-  margin-top: 40px;
+  padding-top: 40px;
   text-align: center;
   p {
     border-top: 1px solid gray;
@@ -197,9 +193,9 @@ footer {
   margin: 0px 10%;
   }
   
-  .btn-block{
-    width: 40%;
-    margin: auto;
+  .container {
+  height: 500px;
+  padding-top: 20px;
   }
   
   .form-control {
@@ -215,15 +211,33 @@ footer {
   }
   
   body {
-  margin: 0px 5%;
+  margin: 0 0%;
+  }
+  
+  .container {
+  height: 400px;
+  padding-top: 10px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+  
+  .btn-block{
+    width: 40%;
+    margin: auto;
   }
   
   .form-control {
-    width: 80%;
+    width: 100%;
     margin: auto;
   }
   
   .side-image-size {
   width: 50% !important;
+  }
+  
+  .image-size {
+  width: 50%;
   }
 }

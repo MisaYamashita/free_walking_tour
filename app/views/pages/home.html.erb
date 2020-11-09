@@ -1,5 +1,5 @@
 <div class="top-wrapper text-center">
-  <div class="top-container">
+  <div class="user-top-container container">
     <div class="top-title">
       <h1>FREE WALKING TOUR</h1>
       <h2>IN JAPAN</h2>
@@ -7,10 +7,10 @@
     </div>
     <% unless logged_in? %>
       <div class="row">
-        <div class="col-md-offset-4 col-md-2">
+        <div class="col-sm-offset-4 col-sm-2">
           <%= link_to 'Sign up', signup_path, class: 'btn btn-block btn-pink' %>
         </div>
-        <div class="col-md-2">
+        <div class="col-sm-2">
           <%= link_to 'Log in', login_path, class: 'btn btn-block btn-pink' %>
         </div>
       </div>

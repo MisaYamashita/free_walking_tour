@@ -2,10 +2,10 @@
     data-turbolinks="false"
 <% end %>
 <div class="tour-wrapper">    
-  <div class="container">
+  <div class="tour-show-container">
     <div class="row">
       <h3 class="text-center">ツアーインフォメーション</h3>
-      <div class="col-md-offset-3 col-md-6">
+      <div class="col-sm-offset-3 col-sm-6">
         <div class="tour-title-show">
           <h5>＜ツアー名＞</h5>
           <%= @tour.title %>
@@ -61,25 +61,6 @@
         </div>
         <div class="tour-images-show">
           <h5>＜ツアーに関する写真＞</h5>
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><%= image_tag @tour.images[0].to_s, class: "slide-image" %></div>
-              <div class="swiper-slide"><%= image_tag @tour.images[1].to_s, class: "slide-image" %></div>
-              <div class="swiper-slide"><%= image_tag @tour.images[2].to_s, class: "slide-image" %></div>
-            </div>
-          </div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-          <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-          <script>
-            var swiper = new Swiper('.swiper-container', {
-              navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-              },
-            });
-          </script>
-          
         </div>
         <% if logged_in? && @tour.user_id == current_user.id %>
           <div class="tour-btn">
