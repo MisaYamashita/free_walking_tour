@@ -1,7 +1,7 @@
 //PCファースト min 1025px
 //全ページ共通
 body {
-  margin: 0px 15%;
+  margin: 0px 20%;
 }
 
 .container {
@@ -54,53 +54,6 @@ body {
 }
 
 
-//問い合わせページ
-.inquiry-container {
-  background-image: image_url('NokogiriMt.jpg');
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: auto;
-   h3 {
-     text-align: center;
-   }
- }
- 
-
-//ログインページ
-.login-container {
-  background-image: image_url('Atera.jpg');
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
- }
- 
-.title-log-in {
-  color: white;
-  text-shadow: 0 0 3px #000,0 0 3px #000,
-               0 0 3px #000,0 0 3px #000,
-               0 0 3px #000,0 0 3px #000,
-}
- 
-.text-white {
-  color: white;
-  text-shadow: 0 0 3px #000,0 0 3px #000,
-               0 0 3px #000,0 0 3px #000,
-}
-
-
-// Sign Up ページ
-.signup-container {
-  background-image: image_url('NokogiriMt.jpg');
-  height: 600px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: auto;
- }
 
 //ログイン後のshowページ
 .user-top-container {
@@ -110,25 +63,38 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   width: auto;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .prfile-wapper {
   margin-left: 15px;
   float: left;
+  width: 100%;
   
   .side-image-size {
-  width: 180px;
-  height: 180px;
+  width: 100%;
   }
 }
 
-.tour-box-list {
+.your-plan-container {
+  margin-top: 40px;
+}
+
+.join-tour-box-list {
   padding: 2px 4px;
   color: #232323;
   background: #fff8e8;
   border: solid 1px #ffc06e;
   border-left: solid 10px #ffc06e;
+}
+
+.plan-tour-box-list {
+  padding: 2px 4px;
+  color: #232323;
+  background: #FFEEFF;
+  border: solid 1px #FFCCFF;
+  border-left: solid 10px #FFCCFF;
 }
 
 .tour-box-list-past {
@@ -137,6 +103,7 @@ body {
   background: #D7EEFF;
   border: solid 1px #BAD3FF;
   border-left: solid 10px #BAD3FF;
+  width: 80%;
 }
 
 
@@ -195,6 +162,13 @@ body {
   margin-bottom: 0px;
 }
 
+.index-tour-box-list {
+  padding: 2px 4px;
+  color: #232323;
+  background: #EEFFFF;
+  border: solid 1px #6495ED;
+  border-left: solid 10px #6495ED;
+}
 
 //ツアー問い合わせ
 .tour-contact-tour-title {
@@ -202,20 +176,54 @@ body {
 }
 
 
+//ヘッダー
+footer {
+  margin-top: 40px;
+  text-align: center;
+  p {
+    border-top: 1px solid gray;
+    width: 100%;
+  }
+}
 
 
-@media screen and (max-width: 1150px) { /* 1024px以下に適用されるCSS（タブレット用） */
+
+@media screen and (max-width: 1199px) { /* 1190px以下に適用されるCSS（ノートパソコン、タブレット用　bootstrap基準） */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+  margin: 0px 10%;
+  }
+  
   .btn-block{
     width: 40%;
     margin: auto;
   }
   
   .form-control {
-    width: 70%;
+    width: 100%;
     margin: auto;
   }
 }
 
-@media screen and (max-width: 480px) { /* 480px以下に適用されるCSS（スマホ用） */
-
+@media screen and (max-width: 767px) { /* 767px以下に適用されるCSS（ファブレット、スマホ用） */
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+  margin: 0px 5%;
+  }
+  
+  .form-control {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .side-image-size {
+  width: 50% !important;
+  }
 }

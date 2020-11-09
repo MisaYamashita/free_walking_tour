@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-sm-3 col-xs-12">
       <div class="prfile-wapper">
         <p><%= current_user.name %>さんのプロフィール</p>
         <span class="side-image-size">
@@ -24,9 +24,9 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-5">
+    <div class="col-sm-5 col-xs-12">
       <div class="tour-search-container">
-        <h5>＜ツアー検索！＞</h5>
+        <h4>＜ツアー検索！＞</h4>
         <h6>都道府県、または都市名を入力してください</h6> <!--文字列部分一致検索 -->
         <%= form_tag(all_tour_path, method: :get) do %>
           <div class="tour-search-form">
@@ -36,37 +36,45 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4 col-xs-12">
       <div class="tour-make-container">
-        <h5>＜ツアーを開催！＞</h5>
+        <h4>＜ツアーを開催！＞</h4>
         <%= link_to new_tour_path do %>
           <button class="btn plan-btn">ツアーを計画する</button>
         <% end %>
       </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-sm-7 col-xs-12">
       <div class="your-plan-container">
-        <h5>＜<%= current_user.name %>さんの予定表＞</h5>
+        <h4>＜<%= current_user.name %>さんの予定表＞</h4>
         <div class="joinning">
-          <h6>◆参加予定のツアー</h6>
-          <% @user_join.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
-            <div class="tour-box-list", data-turbolinks="false",> <!--リンク先でturbolinksを無効にする(google map表示のため) -->
-              <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
-            </div>
+          <h5>◆参加予定のツアー</h5>
+          <% if @user_join.exists? %>
+            <% @user_join.each do |tour| %> <!--ユーザーが参加するツアー一覧 -->
+              <div class="join-tour-box-list", data-turbolinks="false",> <!--リンク先でturbolinksを無効にする(google map表示のため) -->
+                <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
+              </div>
+            <% end %>
+          <% else %>
+            <p>参加予定のツアーはありません</p>
           <% end %>
         </div>  
         <div class="planning">
-          <h6>◆開催予定のツアー</h6>
-          <% @user_plan.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
-            <div class="tour-box-list", data-turbolinks="false">
-              <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
-            </div>
+          <h5>◆開催予定のツアー</h5>
+          <% if @user_plan.exists? %>
+            <% @user_plan.each do |tour| %>　<!--ユーザーが開催するツアー一覧 -->
+              <div class="plan-tour-box-list", data-turbolinks="false">
+                <%= link_to tour.title, tour_path(id: tour.id) %><P>日時：<%= l tour.date %></P>
+              </div>
+            <% end %>
+          <% else %>
+            <p>開催予定のツアーはありません</p>
           <% end %>
         </div>
       </div>
       <div class="your-plan-container">
         <h5>＜<%= current_user.name %>さんの過去のアクティビティ＞</h5>
-        <h6>レビューを書きましょう！</h6>
+        <h6>参加したツアーのレビューを書きましょう！</h6>
         <div class="joined_tour">
           <P>過去に参加したツアーの一覧は<%= link_to "こちら", joined_past_path(id: current_user.id) %></P>
           
