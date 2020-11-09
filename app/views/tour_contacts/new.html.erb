@@ -7,7 +7,7 @@
           <%= render 'layouts/error_messages', model: f.object %>
           <p class="tour-contact-tour-title">ツアー名</p>
             <%= @tour_contact.tour.title %>
-          <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
+            <%= f.hidden_field :tour_id, value: @tour_contact.tour_id %>
             <div class="tour-contact-form">
               <%= f.label :name, "お名前" %>
               <%= f.text_field :name, class: 'form-control' %>
@@ -24,7 +24,9 @@
               <%= f.label :message, "お問い合わせ内容" %>
               <%= f.text_area :message, rows: 7, class: 'form-control' %>
             </div>
-          <%= f.submit "送信", class: "btn btn-send" %>
+            <div>
+              <%= f.submit "送信", class: "btn btn-send" %>
+            </div>
         <% end %>
       </div>
     </div>

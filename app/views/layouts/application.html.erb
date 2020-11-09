@@ -7,58 +7,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application' %>
     <meta name=”viewport” content=”width=device-width, initial-scale=1, user-scalable=yes”> <!--user-scalableは画面拡大ができるようにする -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> -->
   </head>
   
   <body>
-    <header class="navbar navbar-top navbar-inverse">
-      <div class="container">
-        <% if logged_in? %>
-          <%= link_to "FREE WALKING TOUR JP",user_path(current_user.id), id:"logo" %>
-        <% else %>
-          <%= link_to "FREE WALKING TOUR JP",root_path, id:"logo" %>
-        <% end %>
-        <nav>
-          <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
-              <li><%= link_to "Home", user_path(current_user.id) %></li>
-            <% else %>
-              <li><%= link_to "Home", root_path %></li>
-            <% end %>
-            
-            <li><%= link_to "About", pages_about_path %></li>
-            <li><%= link_to "Contact", inquiries_new_path %></li>
-            
-            <% if logged_in? %> <!--ログイン後に表示されるメニュー-->
-              <% if has_profile? %>
-                <li><%= link_to "Profile", profiles_show_path(current_user.id) %></li> <!--プロフィールデータがある場合はshowアクションへ-->
-              <% else %>
-                <li><%= link_to "Profile", profiles_new_path %></li>　<!--プロフィールデータがなければnewアクションへ-->
-              <% end %>
-              <% if current_user.admin? %> <!--管理者の場合は管理者ページリンクを表示するへ-->
-                <li><%= link_to "Admin Page", admin_users_path %></li>
-              <% end %>
-              <li><%= link_to "Log out", logout_path, method: :delete %>
-            <% else %>
-              <li><%= link_to "Log in", login_path %></li>
-            <% end %>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <%= render 'layouts/header' %>
     
     <div class="main">
       <% flash.each do |message_type, message| %>  <!-- flashメッセージがある場合に表示させる -->
         <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
       <% end %>
-      
-      <%= yield %>
-      
       <script>
-        $(function() {
+        $(function() { //flashメッセージの設定
           $(".alert").fadeOut(4000);
         });
       </script>
+      
+      <%= yield %>
     </div>
     
     <footer>

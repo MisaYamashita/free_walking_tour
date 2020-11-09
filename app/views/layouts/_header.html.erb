@@ -1,0 +1,45 @@
+<header class="navbar navbar-top navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span> <!-- 切り替えを意味する -->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          
+          <% if logged_in? %>
+            <%= link_to "FREE WALKING TOUR JP",user_path(current_user.id), id:"logo" %>
+          <% else %>
+            <%= link_to "FREE WALKING TOUR JP",root_path, id:"logo" %>
+          <% end %>
+        </div>
+        
+        <nav>
+          <ul id="navbar" class="nav navbar-nav navbar-right navbar-collapse collapse">
+            <% if logged_in? %>
+              <li><%= link_to "Home", user_path(current_user.id) %></li>
+            <% else %>
+              <li><%= link_to "Home", root_path %></li>
+            <% end %>
+            
+            <li><%= link_to "About", pages_about_path %></li>
+            <li><%= link_to "Contact", inquiries_new_path %></li>
+            
+            <% if logged_in? %> <!--ログイン後に表示されるメニュー-->
+              <% if has_profile? %>
+                <li><%= link_to "Profile", profiles_show_path(current_user.id) %></li> <!--プロフィールデータがある場合はshowアクションへ-->
+              <% else %>
+                <li><%= link_to "Profile", profiles_new_path %></li>　<!--プロフィールデータがなければnewアクションへ-->
+              <% end %>
+              <% if current_user.admin? %> <!--管理者の場合は管理者ページリンクを表示するへ-->
+                <li><%= link_to "Admin Page", admin_users_path %></li>
+              <% end %>
+              <li><%= link_to "Log out", logout_path, method: :delete %>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>

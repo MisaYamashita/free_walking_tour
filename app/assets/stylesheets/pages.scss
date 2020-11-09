@@ -2,30 +2,4 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.top-container {
-  background-image: image_url('Kyoto.jpg');
-  height: 550px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: auto;
-}
-
-
-.top-title {
-  padding-top: 60px;
-  color: white;
-  h1, h2 {
-    text-shadow: 0 0 3px #f00,0 0 3px #f00,
-                 0 0 3px #f00,0 0 3px #f00,
-                 0 0 3px #f00,0 0 3px #f00,
-                 0 0 3px #f00,0 0 3px #f00,
-  }
-}
-
-.btn-pink {
-  color: #993300;
-  background-color: #FFBEDA;
-  border: 1px solid #993300;
-}
 

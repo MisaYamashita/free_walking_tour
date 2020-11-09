@@ -1,4 +1,5 @@
-
+//PCファースト min 1025px
+//全ページ共通
 body {
   margin: 0px 15%;
 }
@@ -7,21 +8,214 @@ body {
   width: auto;
 }
 
+
+
+//ナビゲーション
 .navbar {
   margin-bottom: 1px !important;
+  
+  #logo {
+  float: left;
+  margin-top: 10px;
+  font-size:20px;
+  color: #fff;
+  letter-spacing: -2px;
+  text-decoration: none;
+  }
 }
 
-.form-control {
+
+
+//ログイン前のHomeページ
+.top-container {
+  background-image: image_url('Kyoto.jpg');
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+}
+
+.top-title {
+  padding-top: 60px;
+  color: white;
+  h1, h2 {
+    text-shadow: 0 0 3px #f00,0 0 3px #f00,
+                 0 0 3px #f00,0 0 3px #f00,
+                 0 0 3px #f00,0 0 3px #f00,
+                 0 0 3px #f00,0 0 3px #f00,
+  }
+}
+
+.btn-pink {
+  color: #993300;
+  background-color: #FFBEDA;
+  border: 1px solid #993300;
+}
+
+
+//問い合わせページ
+.inquiry-container {
+  background-image: image_url('NokogiriMt.jpg');
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+   h3 {
+     text-align: center;
+   }
+ }
+ 
+
+//ログインページ
+.login-container {
+  background-image: image_url('Atera.jpg');
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
+ }
+ 
+.title-log-in {
+  color: white;
+  text-shadow: 0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
 }
  
-@media screen and (max-width: 959px) {
-	/* 959px以下に適用されるCSS（タブレット用） */
+.text-white {
+  color: white;
+  text-shadow: 0 0 3px #000,0 0 3px #000,
+               0 0 3px #000,0 0 3px #000,
 }
-@media screen and (max-width: 480px) {
-	/* 480px以下に適用されるCSS（スマホ用） */
-  .navbar {
-  display: none;
-  menu-icon: block;
+
+
+// Sign Up ページ
+.signup-container {
+  background-image: image_url('NokogiriMt.jpg');
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+ }
+
+//ログイン後のshowページ
+.user-top-container {
+  background-image: image_url('Kyoto.jpg');
+  height: 600px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  text-align: center;
+}
+
+.prfile-wapper {
+  margin-left: 15px;
+  float: left;
+  
+  .side-image-size {
+  width: 180px;
+  height: 180px;
   }
+}
+
+.tour-box-list {
+  padding: 2px 4px;
+  color: #232323;
+  background: #fff8e8;
+  border: solid 1px #ffc06e;
+  border-left: solid 10px #ffc06e;
+}
+
+.tour-box-list-past {
+  padding: 2px 4px;
+  color: #232323;
+  background: #D7EEFF;
+  border: solid 1px #BAD3FF;
+  border-left: solid 10px #BAD3FF;
+}
+
+
+//Adminページ
+.user-list {
+  list-style: none;
+  line-height: 30px
+}
+
+.user-list-name{
+  margin-right:20px;
+}
+
+.user-list {
+  padding: 0.5em 1em;
+  margin: 3px 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
+.user-list-delete {
+  font-size:10px;
+  display:block;
+  float: right;
+  width: 45px;
+  line-height: 20px;
+  text-align:center;
+  border:2px solid;
+  border-color:#aaaaaa;
+  background:#cccccc;
+}
+
+
+
+//プロフィールページ
+.image-size {
+  width: 300px;
+  height: 300px;
+}
+
+
+
+//ツアーページ
+#map{
+  width: 400px;
+  height: 250px;
+}
+
+.swiper-wrapper {
+  height: 400px;
+}
+
+.tour-date p {
+  margin-bottom: 0px;
+}
+
+
+//ツアー問い合わせ
+.tour-contact-tour-title {
+  font-weight: 700;
+}
+
+
+
+
+@media screen and (max-width: 1150px) { /* 1024px以下に適用されるCSS（タブレット用） */
+  .btn-block{
+    width: 40%;
+    margin: auto;
+  }
+  
+  .form-control {
+    width: 70%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 480px) { /* 480px以下に適用されるCSS（スマホ用） */
+
 }
