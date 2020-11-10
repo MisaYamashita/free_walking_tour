@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  before_action :find_id, only: [:show, :edit, :update]
+  
   def index
     @search_tours = Tour.where("date > ?", Date.today).paginate(page: params[:page], per_page: 10)
   end 
@@ -18,15 +20,12 @@ class ToursController < ApplicationController
   end
 
   def show
-    @tour = Tour.find(params[:id])
   end
 
   def edit
-    @tour = Tour.find(params[:id])
   end
 
   def update
-    @tour = Tour.find(params[:id])
     if @tour.update(tour_params)
       flash[:success] = "ツアー内容をを変更しました"
       redirect_to tour_path(@tour.id)
@@ -45,4 +44,9 @@ class ToursController < ApplicationController
     def tour_params
       params.require(:tour).permit(:user_id, :title, :date, {images: []}, :detail, :latitude, :longitude, :address)
     end
+    
+    def find_id
+      @tour = Tour.find(params[:id])
+    end 
+    
 end

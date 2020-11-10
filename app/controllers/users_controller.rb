@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:show, :edit, :update]
   
   def new
     @user = User.new
@@ -16,17 +16,17 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user_join = User.find(params[:id]).joined_tours.where("date > ?", Date.today) #参加予定のツアー
-    @user_plan = User.find(params[:id]).tours.where("date > ?", Date.today) #開催予定のツアー
+    @user_join = User.join_tours_from_today(params[:id]) #参加予定のツアー
+    @user_plan = User.plan_tours_from_today(params[:id]) #開催予定のツアー
   end
   
   def joined_past #参加したツアー
-    @user_joined_past = User.find(params[:id]).joined_tours.where("date < ?", Date.today).paginate(page: params[:page], per_page: 10) 
+    @user_joined_past = User.joined_tours_past(params[:id]).paginate(page: params[:page], per_page: 10) 
   end 
   
   def planned_past #開催したツアー
-    @user_planned_past = User.find(params[:id]).tours.where("date < ?", Date.today).paginate(page: params[:page], per_page: 10) 
-  end
+    @user_planned_past = User.planned_tours_past(params[:id]).paginate(page: params[:page], per_page: 10) 
+  end 
 
   private
   

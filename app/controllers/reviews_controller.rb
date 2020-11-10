@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :find_id, only: [:show, :edit, :update]
   def new
     @review = Review.new
     @review.tour_id = params[:tour_id] #newのURIにtour_idがあるため、そのparamsのtour_idをインスタンス変数@reviewのtour_idに代入する
@@ -17,20 +18,17 @@ class ReviewsController < ApplicationController
   end
 
   def index
-    @review = Review.where(tour_id: params[:tour_id]).paginate(page: params[:page], per_page: 5) #tour_idごとの一覧を表示する
+    @review = Review.id_index(tour_id: params[:tour_id]).paginate(page: params[:page], per_page: 5) #tour_idごとの一覧を表示する
    
   end
 
   def show
-    @review = Review.find(params[:id])
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
   
   def update
-    @review = Review.find(params[:id])
     if @review.update!(review_params)
       flash[:success] = "レビュー内容をを変更しました"
       redirect_to tour_path(@review.tour.id)
@@ -48,5 +46,9 @@ class ReviewsController < ApplicationController
   private
     def review_params
       params.require(:review).permit(:tour_id, :user_id, :body, :rate)
+    end 
+    
+    def find_id
+      @review = Review.find(params[:id])
     end 
 end

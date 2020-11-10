@@ -27,7 +27,7 @@
     <div class="col-sm-5 col-xs-12">
       <div class="tour-search-container">
         <h4>＜ツアー検索！＞</h4>
-        <h6>都道府県、または都市名を入力してください</h6> <!--文字列部分一致検索 -->
+        <h6>旅先の都道府県、または都市名を入力してください</h6> <!--文字列部分一致検索 -->
         <%= form_tag(all_tour_path, method: :get) do %>
           <div class="tour-search-form">
             <%= text_field_tag :search, params[:search] %>

@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
-  before_action :correct_user,   only: [:new, :create, :edit, :update]
+  before_action :correct_user, only: [:new, :create, :edit, :update]
+  before_action :find_id, only: [:show, :edit, :update]
   
   def new
     @profile = Profile.new
@@ -18,15 +19,12 @@ class ProfilesController < ApplicationController
   end
   
   def show
-    @profile = Profile.find_by(user_id: params[:id])
   end
   
   def edit
-    @profile = Profile.find_by(user_id: params[:id])
   end
   
   def update
-    @profile = Profile.find_by(user_id: params[:id])
     if @profile.update!(profile_params)
       redirect_to profiles_show_path(current_user.id)
     else
@@ -44,6 +42,9 @@ class ProfilesController < ApplicationController
      @user = User.find(params[:id])
      redirect_to(root_url) unless @user == current_user
     end
-  
+    
+    def find_id
+      @profile = Profile.find_by(user_id: params[:id])
+    end 
   
 end

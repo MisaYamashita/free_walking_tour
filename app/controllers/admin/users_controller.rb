@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :admin_user
   
-  helper_method :admin_user, :user_activity
+  helper_method :admin_user
   
   def index
     @search_users = User.all.search(params[:search])
@@ -14,10 +14,6 @@ class Admin::UsersController < ApplicationController
     redirect_to(admin_users_path)
   end
   
-  def user_activity
-    @activity = user.joined_tours || user.tours
-  end 
-
   private
   
   #Adminユーザーかどうか
