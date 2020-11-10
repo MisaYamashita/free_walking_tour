@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
   end
   
   def update
-    if @profile.update!(profile_params)
+    if @profile.update(profile_params)
       redirect_to profiles_show_path(current_user.id)
     else
       render :edit

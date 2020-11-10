@@ -2,7 +2,7 @@ class ToursController < ApplicationController
   before_action :find_id, only: [:show, :edit, :update]
   
   def index
-    @search_tours = Tour.where("date > ?", Date.today).paginate(page: params[:page], per_page: 10)
+    @search_tours = Tour.from_today.paginate(page: params[:page], per_page: 10)
   end 
   
   def new

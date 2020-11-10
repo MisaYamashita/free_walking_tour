@@ -22,6 +22,8 @@ class Tour < ApplicationRecord
   has_many :reviews
   has_many :reviewed_users, through: :reviews, source: 'user' #レビューを書いたユーザーリスト
   
+  scope :from_today, -> {where("date > ?", Date.today)}
+  
   def self.search(search) #self.はTour.を意味する
     if search
       where(['address LIKE ?', "%#{search}%"]) #検索とaddressの部分一致を表示する
