@@ -1,4 +1,4 @@
-//PCファースト min 1025px
+//PCファースト min 1200px
 //全ページ共通
 body {
   margin: 0px 20%;
@@ -48,7 +48,6 @@ body {
 
 
 .container {
-  height: 600px;
   padding-top: 40px;
 }
 
@@ -150,8 +149,20 @@ body {
   height: 250px;
 }
 
+.tour-edit-container {
+  padding-top: 40px;
+}
+
 .swiper-wrapper {
   height: 400px;
+  
+  .slide-image {
+    width: 100%;
+  }
+}
+
+.tour-images-thumbnail {
+  width: 30%;
 }
 
 .tour-date p {
@@ -174,7 +185,7 @@ body {
 
 //フッター
 footer {
-  padding-top: 40px;
+  padding-top: 50px;
   text-align: center;
   p {
     border-top: 1px solid gray;
