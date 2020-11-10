@@ -16,8 +16,7 @@
 //= require activestorage
 //= require turbolinks
 //= require popper
-//= require moment
-//= require moment/ja.js
+
 //= require bootstrap-sprockets
-//= require tempusdominus-bootstrap-4.js
+
 //= require_tree .

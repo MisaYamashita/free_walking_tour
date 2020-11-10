@@ -38,8 +38,8 @@ gem 'bootstrap-will_paginate'
 
 gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.1.1' 
-gem "bootstrap4-datetime-picker-rails"  
-gem 'momentjs-rails'  #date型カレンダー表示用
+#gem "bootstrap4-datetime-picker-rails"  #カレンダー表示用
+#gem 'momentjs-rails'  #date型カレンダー表示用
 gem "font-awesome-rails"
 
 
