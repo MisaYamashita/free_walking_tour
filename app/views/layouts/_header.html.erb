@@ -29,7 +29,7 @@
         <% if has_profile? %>
           <li><%= link_to "Profile", profiles_show_path(current_user.id) %></li> <!--プロフィールデータがある場合はshowアクションへ-->
         <% else %>
-          <li><%= link_to "Profile", profiles_new_path %></li>　<!--プロフィールデータがなければnewアクションへ-->
+          <li><%= link_to "Profile", profiles_new_path(current_user.id) %></li>　<!--プロフィールデータがなければnewアクションへ-->
         <% end %>
         <% if current_user.admin? %> <!--管理者の場合は管理者ページリンクを表示するへ-->
           <li><%= link_to "Admin Page", admin_users_path %></li>
