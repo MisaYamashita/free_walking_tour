@@ -4,7 +4,7 @@
 <div class="tour-wrapper">    
   <div class="tour-show-container container">
     <h3 class="text-center">ツアーインフォメーション</h3>
-    <div class="row">
+    <div class="row  justify-content-center">
       <div class="col-sm-offset-3 col-sm-6">
         <div class="tour-title-show">
           <h5>＜ツアー名＞</h5>
@@ -63,11 +63,6 @@
         <div class="tour-images-show">
           <h5>＜このツアーに関する写真＞</h5>
           <div id="carousel-1" class="carousel slide">
-            <ol class="carousel-indicators">
-              <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
-              <li data-target="#carousel-1" data-slide-to="1"></li>
-              <li data-target="#carousel-1" data-slide-to="2"></li>
-            </ol>
             <div class="carousel-inner">
               <% unless @tour.images.nil? %>
                 <% count = 0 %>
