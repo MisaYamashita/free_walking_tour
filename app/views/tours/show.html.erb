@@ -69,11 +69,11 @@
                 <% @tour.images.each do |image| %>
                   <% if count == 0 %>
                     <div class="carousel-item active">
-                      <div class="d-block w-100"><%= image_tag image.to_s, class: "slide-image" %></div>
+                      <div class="d-block w-100"><%= image_tag image.to_s.delete('\\"'), class: "slide-image" %></div>
                     </div>
                   <% else %>
                     <div class="carousel-item">
-                      <div class="d-block w-100"><%= image_tag image.to_s, class: "slide-image" %></div>
+                      <div class="d-block w-100"><%= image_tag image.to_s.delete('\\"'), class: "slide-image" %></div>
                     </div>
                   <% end %>
                   <% count += 1 %>
