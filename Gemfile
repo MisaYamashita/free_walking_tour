@@ -36,7 +36,7 @@ gem 'bootstrap-will_paginate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bootstrap-sass'
+#gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.1.1' 
 #gem "bootstrap4-datetime-picker-rails"  #カレンダー表示用
 #gem 'momentjs-rails'  #date型カレンダー表示用
