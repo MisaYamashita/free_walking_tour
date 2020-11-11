@@ -11,17 +11,18 @@ body {
 
 
 //ナビゲーション
-.navbar {
-  margin-bottom: 1px !important;
-  
-  #logo {
-  float: left;
-  padding-left: 15px;
-  margin-top: 10px;
-  font-size:20px;
-  color: #fff;
-  letter-spacing: -2px;
-  text-decoration: none;
+header {
+  background-color: white;
+  .navbar-brand {
+    color: #CC0000;
+    letter-spacing: -1px;
+  }
+  .nav-item {
+     text-decoration: none;
+     padding: 0 15px;
+  }
+  .navbar-toggler {
+    background-color: #99CCFF;
   }
 }
 

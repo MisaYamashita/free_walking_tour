@@ -1,46 +1,36 @@
-<header class="navbar navbar-top navbar-inverse">
-  <div class="navbar-header"> <!-- ナビゲーションのレスポンシブ化 -->
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-      <span class="sr-only">Toggle navigation</span> <!-- 切り替えを意味する -->
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    
+<header>
+  <nav class="navbar navbar-expand-lg">
     <% if logged_in? %>
-      <%= link_to "FREE WALKING TOUR JP",user_path(current_user.id), id:"logo" %>
+      <%= link_to "FREE WALKING TOUR JP",user_path(current_user.id), class: "navbar-brand" %>
     <% else %>
-      <%= link_to "FREE WALKING TOUR JP",root_path, id:"logo" %>
+      <%= link_to "FREE WALKING TOUR JP",root_path, class: "navbar-brand" %>
     <% end %>
-  </div>
-  
-  <nav>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
       <% if logged_in? %>
-        <li><%= link_to "Home", user_path(current_user.id) %></li>
+        <li><%= link_to "Home", user_path(current_user.id), class: "nav-item active" %></li>
       <% else %>
-        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Home", root_path, class: "nav-item active" %></li>
       <% end %>
       
-      <li><%= link_to "About", pages_about_path %></li>
-      <li><%= link_to "Contact", inquiries_new_path %></li>
+      <li><%= link_to "About", pages_about_path, class: "nav-item" %></li>
+      <li><%= link_to "Contact", inquiries_new_path, class: "nav-item" %></li>
       
       <% if logged_in? %> <!--ログイン後に表示されるメニュー-->
         <% if has_profile? %>
-          <li><%= link_to "Profile", profiles_show_path(current_user.id) %></li> <!--プロフィールデータがある場合はshowアクションへ-->
+          <li><%= link_to "Profile", profiles_show_path(current_user.id), class: "nav-item" %></li> <!--プロフィールデータがある場合はshowアクションへ-->
         <% else %>
-          <li><%= link_to "Profile", profiles_new_path(current_user.id) %></li>　<!--プロフィールデータがなければnewアクションへ-->
+          <li><%= link_to "Profile", profiles_new_path(current_user.id), class: "nav-item" %></li>　<!--プロフィールデータがなければnewアクションへ-->
         <% end %>
         <% if current_user.admin? %> <!--管理者の場合は管理者ページリンクを表示するへ-->
-          <li><%= link_to "Admin Page", admin_users_path %></li>
+          <li><%= link_to "Admin Page", admin_users_path, class: "nav-item" %></li>
         <% end %>
-        <li><%= link_to "Log out", logout_path, method: :delete %>
+        <li><%= link_to "Log out", logout_path, method: :delete, class: "nav-item" %>
       <% else %>
-        <li><%= link_to "Log in", login_path %></li>
+        <li><%= link_to "Log in", login_path, class: "nav-item" %></li>
       <% end %>
     </ul>
   </nav>

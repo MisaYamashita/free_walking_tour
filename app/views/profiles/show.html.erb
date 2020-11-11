@@ -1,7 +1,7 @@
 <div class="profile-wrapper">
   <div class="container">
+    <h3 class="text-center"><%= @profile.user.name %>さんのプロフィール</h3>
     <div class="row">
-      <h3 class="text-center"><%= @profile.user.name %>さんのプロフィール</h3>
       <div class="col-sm-offset-3 col-sm-5">
         <div class="profile-image text-center">
           <%= image_tag @profile.image.to_s, class: "image-size" %>

@@ -1,7 +1,7 @@
 <div class="profile-edit-wrapper">
   <div class="container">
+    <h3 class="text-center"><%= @profile.user.name %>さんのプロフィール(編集)</h3>
     <div class="row">
-      <h3 class="text-center"><%= @profile.user.name %>さんのプロフィール(編集)</h3>
       <div class="col-sm-offset-3 col-sm-5">
         <%= form_for @profile, url: profiles_edit_path do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
