@@ -12,7 +12,7 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
-    @tour.images.delete('\\"')
+    @tour.images.to_json
     if @tour.save
       redirect_to tour_path(@tour.id)
     else
