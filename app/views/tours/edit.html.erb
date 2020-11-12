@@ -24,10 +24,7 @@
           <div class="tour-images">
             <%= f.label :images, "◆ツアーに関する写真" %>
             <p>ツアーで回る場所の写真や、過去のツアーの写真をアップロードできます</p>
-            <% @tour.images.each do |tour| %>
-              <%= image_tag (tour.url), class: "tour-images-thumbnail" %>
-            <% end %>
-            <%= f.file_field :images, multiple: true %>
+            <%= f.file_field :images, :multiple => true %>
           </div>
           <div>
             <%= f.submit "変更内容を登録する", class: "btn btn-updated" %>

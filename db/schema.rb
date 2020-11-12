@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_013549) do
+ActiveRecord::Schema.define(version: 2020_11_12_005101) do
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "src"
+    t.bigint "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_images_on_tour_id"
+  end
 
   create_table "inquiries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -55,7 +63,6 @@ ActiveRecord::Schema.define(version: 2020_11_04_013549) do
     t.integer "user_id"
     t.text "title"
     t.datetime "date"
-    t.json "images"
     t.text "detail"
     t.float "latitude"
     t.float "longitude"
@@ -85,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_013549) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "images", "tours"
   add_foreign_key "reviews", "tours"
   add_foreign_key "reviews", "users"
   add_foreign_key "tour_contacts", "tours"

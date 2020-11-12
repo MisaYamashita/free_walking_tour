@@ -7,13 +7,19 @@ class ToursController < ApplicationController
   
   def new
     @tour = Tour.new
+    @tour.images.new
   end
 
   def create
     @tour = Tour.new(tour_params)
     @tour.user_id = current_user.id
-    @tour.images.to_json
     if @tour.save
+      images_params[:images].each do |img|
+        @image = Image.new
+        @image.tour_id = @tour.id
+        @image.src = img
+        @image.save
+      end 
       redirect_to tour_path(@tour.id)
     else
       render :new
@@ -28,6 +34,13 @@ class ToursController < ApplicationController
 
   def update
     if @tour.update(tour_params)
+      @tour.images.destroy_all
+      images_params[:images].each do |img|
+        @image = Image.new
+        @image.tour_id = @tour.id
+        @image.src = img
+        @image.save
+      end 
       flash[:success] = "ツアー内容をを変更しました"
       redirect_to tour_path(@tour.id)
     else
@@ -36,14 +49,18 @@ class ToursController < ApplicationController
   end
 
   def destroy
-    @tour = Tour.find(params[:id]).delete
+    Tour.find(params[:id]).destroy
     redirect_to user_path(current_user.id), info: 'ツアーを削除しました'
   end
   
   private
   
     def tour_params
-      params.require(:tour).permit(:user_id, :title, :date, {images: []}, :detail, :latitude, :longitude, :address)
+      params.require(:tour).permit(:user_id, :title, :date, :detail, :latitude, :longitude, :address)
+    end
+    
+    def images_params
+      params.require(:tour).permit(images: [])
     end
     
     def find_id

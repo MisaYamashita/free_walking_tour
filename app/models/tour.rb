@@ -8,8 +8,6 @@ class Tour < ApplicationRecord
   #ツアー一覧はツアー開催日順に表示する
   default_scope -> { order(date: :asc) }
   
-  #ツアー画像用
-  mount_uploaders :images, ImageUploader
   
   #gmapについて
   geocoded_by :address #addressカラムを基準に緯度経度を算出する
@@ -21,6 +19,8 @@ class Tour < ApplicationRecord
   has_many :tour_contacts
   has_many :reviews
   has_many :reviewed_users, through: :reviews, source: 'user' #レビューを書いたユーザーリスト
+  has_many :images, dependent: :destroy
+  accepts_nested_attributes_for :images, allow_destroy: true #削除フラグで削除できるようallow_destroy: trueをつける
   
   scope :from_today, -> {where("date > ?", Date.today)}
   
