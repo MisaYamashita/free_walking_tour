@@ -14,9 +14,9 @@
           <%= image_tag current_user.profile.image.to_s, class: "side-image-size" if !current_user.profile.nil? %>
           <%= image_tag "person.png", class: "side-image-size" if current_user.profile.nil? %><br>
         </span>
-        <p>＜お名前＞</p><br>
+        <p>＜お名前＞</p>
         <%= current_user.name %><br>
-        <p>＜プロフィール文＞</p><br>
+        <p>＜プロフィール文＞</p>
         <% if current_user.profile.nil? %>
           <p>プロフィール文がありません</p>
         <% else %>
