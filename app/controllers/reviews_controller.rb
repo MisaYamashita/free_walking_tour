@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :logged_in_user
   before_action :find_id, only: [:show, :edit, :update]
   def new
     @review = Review.new

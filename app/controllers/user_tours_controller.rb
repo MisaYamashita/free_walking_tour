@@ -1,5 +1,6 @@
 class UserToursController < ApplicationController
   #ツアー参加テーブル
+  before_action :logged_in_user
   
   def create
     @user_tour = UserTour.new
