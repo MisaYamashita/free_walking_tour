@@ -12,7 +12,11 @@
         </div>
         <div class="tour-guid-show">
           <h5>＜ツアー主催者＞</h5>
-          <%= link_to @tour.user.name, profiles_show_path(@tour.user.id) %>
+          <% if logged_in? && has_profile? %>
+            <%= link_to @tour.user.name, profiles_show_path(@tour.user.id) %>
+          <% else %>
+            <%= @tour.user.name %>
+          <% end %>
         </div>
         <div class="tour-date-show">
           <h5>＜ツアー開催日時＞</h5>

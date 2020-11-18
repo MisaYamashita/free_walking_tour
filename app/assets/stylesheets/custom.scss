@@ -2,6 +2,7 @@
 //全ページ共通
 body {
   margin: 0px 20%;
+  font-size: 87.5%;
 }
 
 .container {
@@ -67,9 +68,10 @@ header {
 }
 
 .prfile-wapper {
+  display: inline-block;
   margin-left: 15px;
   float: left;
-  width: 100%;
+  width: 20%;
   
   .side-image-size {
   width: 100%;
@@ -194,15 +196,23 @@ footer {
 
 
 
-@media screen and (max-width: 1199px) { /* 1190px以下に適用されるCSS（ノートパソコン、タブレット用　bootstrap基準） */
+@media screen and (max-width: 1260px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
   * {
     box-sizing: border-box;
   }
   
   body {
-  margin: 0px 10%;
+  font-size: 75%;
+    h5, h6 {
+    font-size: 1rem;
+    }
   }
   
+  
+  
+  .user-top-container {
+    width: 100%;
+  }
   .container {
   height: 500px;
   padding-top: 20px;
@@ -214,8 +224,32 @@ footer {
   }
 }
 
-@media screen and (max-width: 767px) { /* 767px以下に適用されるCSS（ファブレット、スマホ用） */
+.prfile-wapper {
   
+}
+
+@media screen and (max-width: 1090px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+  margin: 0px 10%;
+  }
+}
+
+@media screen and (max-width: 960px) { /* 767px以下に適用されるCSS（タブレット縦用） */
+  * {
+      box-sizing: border-box;
+    }
+    
+  body {
+    margin: 0 5%;
+    }
+
+}
+
+@media screen and (max-width: 560px) { /* 767px以下に適用されるCSS（スマホ縦用） */
   * {
     box-sizing: border-box;
   }
