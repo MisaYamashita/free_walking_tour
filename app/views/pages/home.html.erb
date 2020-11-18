@@ -6,11 +6,11 @@
       <h1>ENJOY TOURS WITH THE LOCALS</h1>
     </div>
     <% unless logged_in? %>
-      <div class="row">
-        <div class="col-sm-offset-4 col-sm-2">
+      <div class="row justify-content-center">
+        <div class="col-lg-2 col-md-3 col-sm-5 col-8">
           <%= link_to 'Sign up', signup_path, class: 'btn btn-block btn-pink' %>
         </div>
-        <div class="col-sm-2">
+        <div class="col-lg-2 col-md-3 col-sm-5 col-8">
           <%= link_to 'Log in', login_path, class: 'btn btn-block btn-pink' %>
         </div>
       </div>
@@ -19,8 +19,8 @@
 </div>
 
 <div class="middle-wrapper">
-  <div class="row middle-container">
-    <div class="col-md-offset-2 col-md-8 serach-prefecture">
+  <div class="row justify-content-center">
+    <div class="col-md-4 serach-prefecture">
       <h5>＜ツアー検索＞</h5>
       <h6>都道府県、または都市名を入力してください</h6>
       <%= form_tag(all_tour_path, method: :get) do %>

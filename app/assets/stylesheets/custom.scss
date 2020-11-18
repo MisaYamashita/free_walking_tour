@@ -1,8 +1,8 @@
 //PCファースト min 1200px
 //全ページ共通
 body {
-  margin: 0px 20%;
-  font-size: 87.5%;
+  margin: 0px 10%;
+  font-size: 93.75%;
 }
 
 .container {
@@ -196,13 +196,12 @@ footer {
 
 
 
-@media screen and (max-width: 1260px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
+@media screen and (max-width: 1200px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
   * {
     box-sizing: border-box;
   }
   
   body {
-  font-size: 75%;
     h5, h6 {
     font-size: 1rem;
     }
@@ -228,17 +227,27 @@ footer {
   
 }
 
-@media screen and (max-width: 1090px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
+@media screen and (max-width: 992px) { /* 1190px以下に適用されるCSS（ノートパソコン） */
   * {
     box-sizing: border-box;
   }
   
   body {
   margin: 0px 10%;
+  font-size: 75%;
+  }
+  
+  .btn-pink{
+    margin: auto;
+  }
+  
+  .form-control {
+    width: 100%;
+    margin: auto;
   }
 }
 
-@media screen and (max-width: 960px) { /* 767px以下に適用されるCSS（タブレット縦用） */
+@media screen and (max-width: 768px) { /* 767px以下に適用されるCSS（タブレット縦用） */
   * {
       box-sizing: border-box;
     }
@@ -246,10 +255,20 @@ footer {
   body {
     margin: 0 5%;
     }
+    
+  .btn-pink{
+    width: 100%;
+    margin: auto;
+  }
+  
+  .form-control {
+    width: 100%;
+    margin: auto;
+  }
 
 }
 
-@media screen and (max-width: 560px) { /* 767px以下に適用されるCSS（スマホ縦用） */
+@media screen and (max-width: 544px) { /* 767px以下に適用されるCSS（スマホ縦用） */
   * {
     box-sizing: border-box;
   }
@@ -267,7 +286,7 @@ footer {
     font-size: 20px;
   }
   
-  .btn-block{
+  .btn-pink{
     width: 40%;
     margin: auto;
   }
