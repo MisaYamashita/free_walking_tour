@@ -12,7 +12,6 @@
   
   <body>
     <%= render 'layouts/header' %>
-    
     <div class="main">
       <% flash.each do |message_type, message| %>  <!-- flashメッセージがある場合に表示させる -->
         <div class="alert alert-<%= message_type %>" role="alert"><%= message %></div>
@@ -22,12 +21,8 @@
           $(".alert").fadeOut(4000);
         });
       </script>
-      
       <%= yield %>
     </div>
-    
-    
     <%= render 'layouts/footer' %>
-    
   </body>
 </html>

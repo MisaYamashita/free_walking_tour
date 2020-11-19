@@ -9,6 +9,10 @@ body {
   width: auto;
 }
 
+.tour-wrapper {
+  margin-bottom: 50px;
+}
+
 
 
 //ナビゲーション
@@ -188,6 +192,7 @@ header {
 footer {
   padding-top: 50px;
   text-align: center;
+  clear: both;
   p {
     border-top: 1px solid gray;
     width: 100%;
@@ -202,7 +207,7 @@ footer {
   }
   
   body {
-    h5, h6 {
+    h2, h3, h4, h5, h6 {
     font-size: 1rem;
     }
   }
@@ -211,10 +216,8 @@ footer {
   
   .user-top-container {
     width: 100%;
-  }
-  .container {
-  height: 500px;
-  padding-top: 20px;
+    height: 500px;
+    padding-top: 20px;
   }
   
   .form-control {
@@ -277,7 +280,7 @@ footer {
   margin: 0 0%;
   }
   
-  .container {
+  .user-top-container {
   height: 400px;
   padding-top: 10px;
   }
