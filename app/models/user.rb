@@ -25,12 +25,13 @@ class User < ApplicationRecord
   
   #アドミンページのユーザー検索
   def self.search(search) 
-    if search 
+    if search
       where(['name LIKE ?', "%#{search}%"])   
     else  
       all  
     end  
   end
+  
   
   #SNS認証ログイン
   def self.find_or_create_from_auth(auth)

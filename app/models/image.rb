@@ -1,4 +1,6 @@
 class Image < ApplicationRecord
+  validates :src, presence: true
+  
   belongs_to :tour
   
   #ツアー画像用

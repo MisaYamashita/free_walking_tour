@@ -7,6 +7,7 @@
           <%= render 'layouts/error_messages', model: f.object %>
           <div class="tour-title">
             <%= f.label :title, "◆ツアー名" %>
+            <p>※件名や観光地名を含めることで、ツアー検索で見つけやすくなります</p>
             <%= f.text_field :title, class: 'tour-input-form form-control' %>
           </div>
           <div class="tour-date">
@@ -23,7 +24,7 @@
           </div>
           <div class="tour-images">
             <%= f.label "◆ツアーに関する写真" %>
-            <p>ツアーで回る場所の写真や、過去のツアーの写真をアップロードできます(8枚まで)</p>
+            <p>ツアーで回る場所の写真や、過去のツアーの写真をアップロードできます<br>※必ず1枚以上アップロードしてください(8枚まで)</p>
             <%= f.file_field :images, :multiple => true %>
           </div>
           <div>

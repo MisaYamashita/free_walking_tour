@@ -24,9 +24,10 @@ class Tour < ApplicationRecord
   
   scope :from_today, -> {where("date > ?", Date.today)}
   
+  #ツアー検索
   def self.search(search) #self.はTour.を意味する
     if search
-      where(['address LIKE ?', "%#{search}%"]) #検索とaddressの部分一致を表示する
+      where(['title LIKE ?', "%#{search}%"]) #検索とaddressの部分一致を表示する
     else
       all
     end
